@@ -6,4 +6,4 @@
  * Time: 14:22
  */
 ?>
-<div>SIDEBAR</div>
+<!--<div>SIDEBAR</div>-->
