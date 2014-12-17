@@ -1,0 +1,82 @@
+/********************************************************************************************* 
+Like Module Script
+*********************************************************************************************/
+#like {
+}
+
+.like-enable {
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: left;
+    background-image: url(../images/heart_unclicked.png);
+}
+
+.like-disable {
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: left;
+    background-image: url(../images/heart_clicked.png);
+}
+
+.like-disable:hover {
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: left;
+    background-position-y: -24px;
+}
+
+#zoom_like {
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -20px;
+}
+
+
+.porto_single {
+	position:relative;
+	width:111px;
+	text-align:center;
+	color:#58A464;
+	display:block;
+}
+
+#zoom_like_portfolio {
+	display:block;
+	top:0;
+	position:absolute;
+	width:111px;
+	height:111px;
+}
+
+.porto-enable {
+    background-repeat: no-repeat;
+    width: 111px;
+    height: 111px;
+    cursor: pointer;
+    float: left;
+    background-image: url(../images/assessment.png);
+}
+
+.porto-disable {
+    background-repeat: no-repeat;
+    width: 111px;
+    height: 111px;
+    cursor: pointer;
+    float: left;
+    background-image:url(../images/assessment_voted.png);
+}
+
+.porto-disable:hover {
+    background-repeat: no-repeat;
+    width: 111px;
+    height: 111px;
+    cursor: pointer;
+    float: left;
+}
+
