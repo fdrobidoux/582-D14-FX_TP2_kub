@@ -35,9 +35,9 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
 $classes[] = "col-xs-12";
-$classes[] = "col-sm-6";
-$classes[] = "col-md-4";
-$classes[] = "col-lg-3";
+$classes[] = "col-sm-4";
+$classes[] = "col-md-3";
+$classes[] = "col-lg-2";
 
 ?>
 <div <?php post_class( $classes ); ?>>
@@ -52,6 +52,8 @@ $classes[] = "col-lg-3";
 			 * @hooked woocommerce_show_product_loop_sale_flash - 10
 			 * @hooked woocommerce_template_loop_product_thumbnail - 10
 			 */
+			/* NOTE DE FÉLIX: Le nb après le dash (-) est la priorité dans l'exécution de chaque
+			 * hook de l'action. */
 			do_action( 'woocommerce_before_shop_loop_item_title' );
 		?>
 
