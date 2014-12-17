@@ -1,38 +1,36 @@
 body {
-    padding-top: 76px; }
+  padding-top: 76px; }
 
 .bottom-menu-list li {
-    display: block; }
+  display: block; }
 
 #Main {
-    padding: 60px 0; }
+  padding: 60px 0; }
 
 .bottom-menu-inverse a {
-    color: #7795b4; }
+  color: #7795b4; }
 
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
-    color: #eaeff3; }
+  color: #eaeff3; }
 
 textarea.form-control {
-    resize: none; }
+  resize: none; }
 
-/* Rend le Carousel  */
+/* Rend le Carousel */
 #myCarousel .carousel-inner .item img {
-    max-height: 500px; }
+  max-height: 500px; }
 
 /*# sourceMappingURL=style.css.map */
-
 .navbar-toggle {
-    height: 53px;
-    padding: 0 20px;
-    margin: 0 0 0 21px;
-    line-height: 53px;
-    color: #34495e;
-    border: none;
-}
+  height: 53px;
+  padding: 0 20px;
+  margin: 0 0 0 21px;
+  line-height: 53px;
+  color: #34495e;
+  border: none; }
 
 img {
-    max-width: 100%;
-    min-width: 100%;
-}
+  max-width: 100%;
+  min-width: 100%; }
 
+/*# sourceMappingURL=kub.css.map */
