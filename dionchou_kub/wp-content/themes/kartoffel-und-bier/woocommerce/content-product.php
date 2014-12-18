@@ -35,30 +35,29 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
 $classes[] = "col-xs-12";
-$classes[] = "col-sm-4";
+$classes[] = "col-sm-3";
 $classes[] = "col-md-3";
 $classes[] = "col-lg-2";
 
 ?>
 <div <?php post_class( $classes ); ?>>
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
+	<div class="well well-sm">
+		<a href="<?php the_permalink(); ?>">
+			<?php
+				/**
+				 * woocommerce_before_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_show_product_loop_sale_flash - 10
+				 * @hooked woocommerce_template_loop_product_thumbnail - 10
+				 */
+				// do_action( 'woocommerce_before_shop_loop_item_title' );
+				wc_get_template( 'loop/sale-flash.php' );
+				echo woocommerce_get_product_thumbnail();
+			?>
 
-	<a href="<?php the_permalink(); ?>">
-
-		<?php
-			/**
-			 * woocommerce_before_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_show_product_loop_sale_flash - 10
-			 * @hooked woocommerce_template_loop_product_thumbnail - 10
-			 */
-			/* NOTE DE FÉLIX: Le nb après le dash (-) est la priorité dans l'exécution de chaque
-			 * hook de l'action. */
-			do_action( 'woocommerce_before_shop_loop_item_title' );
-		?>
-
-		<h4><?php the_title(); ?></h4>
-
+			<p class="product_title"><?php the_title(); ?></p>
+		</a>
 		<?php
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
@@ -66,12 +65,15 @@ $classes[] = "col-lg-2";
 			 * @hooked woocommerce_template_loop_rating - 5
 			 * @hooked woocommerce_template_loop_price - 10
 			 */
-
-			do_action( 'woocommerce_after_shop_loop_item_title' );
+			// do_action( 'woocommerce_after_shop_loop_item_title' );
+			wc_get_template( 'loop/rating.php' );
 		?>
-
-	</a>
-
-	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+		<div class="btn-group">
+			<?php
+				wc_get_template( 'loop/price.php' );
+				wc_get_template( 'loop/add-to-cart.php' );
+			?>
+		</div>
+	</div>
 
 </div>

@@ -47,7 +47,13 @@ class WC_Product_Simple extends WC_Product {
 	 * @return string
 	 */
 	public function add_to_cart_text() {
-		$text = $this->is_purchasable() && $this->is_in_stock() ? __( 'Add to cart', 'woocommerce' ) : __( 'Read More', 'woocommerce' );
+		// TODO voir si ça dérange Michel que je changes les fonctions du plugin directement.
+		// $text = $this->is_purchasable() && $this->is_in_stock()
+		// ? __( 'Add to cart', 'woocommerce' )
+		// : __( 'Read More', 'woocommerce' );
+		$text = $this->is_purchasable() && $this->is_in_stock()
+				? '<i class="fui-plus"></i>'
+				: __( 'Read More', 'woocommerce' );
 
 		return apply_filters( 'woocommerce_product_add_to_cart_text', $text, $this );
 	}
