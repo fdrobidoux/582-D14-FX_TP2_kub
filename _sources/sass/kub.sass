@@ -42,7 +42,29 @@ textarea.form-control
   background-color: #eee
   border-radius: 15px
 
-/* Col */
+/* ########## Select ######### */
+=couleur-select($color)
+  .select2-drop &.select2-highlighted > .select2-result-label
+    background-color: $color
+/* Note: « .select-primary » est celui par défaut. pas besoin de le styler.
+/* Default
+.select-default
+  +couleur-select(#BDC3C7)
+/* Inverse
+.select-inverse
+  +couleur-select(#415B76)
+/* Default
+.select-info
+  +couleur-select(#3498DB)
+/* Warning
+.select-warning
+  +couleur-select(#F4D313)
+/* Success
+.select-success
+  +couleur-select(#58D68D)
+/* Danger
+.select-danger
+  +couleur-select(#E74C3C)
 
 @media (max-width: 335px)
   .navbar-brand

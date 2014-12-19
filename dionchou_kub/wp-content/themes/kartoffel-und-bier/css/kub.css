@@ -38,7 +38,32 @@ textarea.form-control {
   background-color: #eee;
   border-radius: 15px; }
 
-/* Col */
+/* ########## Select ######### */
+/* Note: ┬½ .select-primary ┬╗ est celui par d├®faut. pas besoin de le styler. */
+/* Default */
+.select2-drop .select-default.select2-highlighted > .select2-result-label {
+  background-color: #BDC3C7; }
+
+/* Inverse */
+.select2-drop .select-inverse.select2-highlighted > .select2-result-label {
+  background-color: #415B76; }
+
+/* Default */
+.select2-drop .select-info.select2-highlighted > .select2-result-label {
+  background-color: #3498DB; }
+
+/* Warning */
+.select2-drop .select-warning.select2-highlighted > .select2-result-label {
+  background-color: #F4D313; }
+
+/* Success */
+.select2-drop .select-success.select2-highlighted > .select2-result-label {
+  background-color: #58D68D; }
+
+/* Danger */
+.select2-drop .select-danger.select2-highlighted > .select2-result-label {
+  background-color: #E74C3C; }
+
 @media (max-width: 335px) {
   .navbar-brand {
     position: absolute;

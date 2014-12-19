@@ -10,9 +10,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <form class="woocommerce-ordering" method="get">
-	<select name="orderby" class="orderby form-control select select-primary select-block mbl">
+	<select name="orderby" class="orderby form-control select select-inverse select-block mbl">
 		<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
-			<option class="select select-info" value="<?php echo esc_attr( $id ); ?>" <?php
+			<option class="select select-inverse" value="<?php echo esc_attr( $id ); ?>" <?php
 				selected(
 				$orderby, $id );
 			?>><?php echo esc_html( $name ); ?></option>
