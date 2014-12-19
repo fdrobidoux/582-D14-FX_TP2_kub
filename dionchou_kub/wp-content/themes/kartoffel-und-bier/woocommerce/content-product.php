@@ -34,11 +34,11 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 	$classes[] = 'first';
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
-$classes[] = "col-xs-8";
+$classes[] = "col-xs-10";
 $classes[] = "col-sm-6";
 $classes[] = "col-md-3";
 $classes[] = "col-lg-2";
-$classes[] = "col-xs-offset-2";
+$classes[] = "col-xs-offset-1";
 $classes[] = "col-sm-offset-0";
 
 ?>
@@ -46,6 +46,7 @@ $classes[] = "col-sm-offset-0";
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 	<div class="well well-sm">
 		<a href="<?php the_permalink(); ?>">
+			<div class="thumbnail">
 			<?php
 				/**
 				 * woocommerce_before_shop_loop_item_title hook
@@ -57,6 +58,7 @@ $classes[] = "col-sm-offset-0";
 				wc_get_template( 'loop/sale-flash.php' );
 				echo woocommerce_get_product_thumbnail();
 			?>
+		</div>
 
 			<p class="product_title"><?php the_title(); ?></p>
 		</a>
