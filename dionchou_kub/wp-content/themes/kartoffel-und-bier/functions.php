@@ -148,75 +148,75 @@ add_action('widgets_init', 'arphabet_widgets_init');
 // CUSTOM POST TYPES
 //======================================================================================================================
 
-///**
-// * Permet des entrées personnalisées dans la page d'accueil.  Le gestionnaire du commerce pourra donc procéder a de
-// * nouvelles entrées, ou éditer des entrées existantes, sans risquer de briser la page d'accueil du site.
-// *
-// * wordpress hook -> init
-// *
-// * @param void
-// * @return void
-// */
-//function kub_register_home_post_type()
-//{
-//
-//    $labels = array(
-//        'name' => 'Entrées',
-//        'singular_name' => 'Entrée',
-//        'menu_name' => 'Accueil',
-//        'parent_item_colon' => 'Entrée parente:',
-//        'all_items' => 'Toutes les entrées',
-//        'view_item' => 'Voir l\'entrée',
-//        'add_new_item' => 'Ajouter une nouvelle entrée',
-//        'add_new' => 'Ajouter',
-//        'edit_item' => 'Éditer l\'entrée',
-//        'update_item' => 'Mettre à jour l\'entrée',
-//        'search_items' => 'Rechercher une entrée',
-//        'not_found' => 'Entrée introuvable',
-//        'not_found_in_trash' => 'Entrée introuvable dans la corbeille',
+/**
+ * Permet des entrées personnalisées dans la page d'accueil.  Le gestionnaire du commerce pourra donc procéder a de
+ * nouvelles entrées, ou éditer des entrées existantes, sans risquer de briser la page d'accueil du site.
+ *
+ * wordpress hook -> init
+ *
+ * @param void
+ * @return void
+ */
+function kub_register_home_post_type()
+{
+
+    $labels = array(
+        'name' => 'Entrées',
+        'singular_name' => 'Entrée',
+        'menu_name' => 'Accueil',
+        'parent_item_colon' => 'Entrée parente:',
+        'all_items' => 'Toutes les entrées',
+        'view_item' => 'Voir l\'entrée',
+        'add_new_item' => 'Ajouter une nouvelle entrée',
+        'add_new' => 'Ajouter',
+        'edit_item' => 'Éditer l\'entrée',
+        'update_item' => 'Mettre à jour l\'entrée',
+        'search_items' => 'Rechercher une entrée',
+        'not_found' => 'Entrée introuvable',
+        'not_found_in_trash' => 'Entrée introuvable dans la corbeille',
+    );
+    $rewrite = array(
+        'slug' => 'accueil',
+        'with_front' => false,
+        'pages' => false,
+        'feeds' => false,
+    );
+//    $capabilities = array(
+//        'edit_post' => 'edit_post',
+//        'read_post' => 'read_post',
+//        'delete_post' => 'delete_post',
+//        'edit_posts' => 'edit_posts',
+//        'edit_others_posts' => 'edit_others_posts',
+//        'publish_posts' => 'publish_posts',
+//        'read_private_posts' => 'read_private_posts',
 //    );
-//    $rewrite = array(
-//        'slug' => 'accueil',
-//        'with_front' => false,
-//        'pages' => false,
-//        'feeds' => false,
-//    );
-////    $capabilities = array(
-////        'edit_post' => 'edit_post',
-////        'read_post' => 'read_post',
-////        'delete_post' => 'delete_post',
-////        'edit_posts' => 'edit_posts',
-////        'edit_others_posts' => 'edit_others_posts',
-////        'publish_posts' => 'publish_posts',
-////        'read_private_posts' => 'read_private_posts',
-////    );
-//    $args = array(
-//        'label' => 'home_entry_post_type',
-//        'description' => 'Permet des entrées personnalisées dans la page d\'accueil',
-//        'labels' => $labels,
-//        'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions',),
-//        'hierarchical' => false,
-//        'public' => true,
-//        'show_ui' => true,
-//        'show_in_menu' => true,
-//        'show_in_nav_menus' => false,
-//        'show_in_admin_bar' => false,
-//        'menu_position' => 5,
-//        'menu_icon' => 'dashicons-admin-home',
-//        'can_export' => true,
-//        'has_archive' => false,
-//        'exclude_from_search' => true,
-//        'publicly_queryable' => true,
-//        'query_var' => 'home_entry',
-//        'rewrite' => $rewrite,
-////        'capabilities' => $capabilities,
-//    );
-//    register_post_type('home_entry_post_type', $args);
-//
-//}
-//
-//// Hook sur l'action 'init'
-//add_action('init', 'kub_register_home_post_type', 0);
+    $args = array(
+        'label' => 'home_entry_post_type',
+        'description' => 'Permet des entrées personnalisées dans la page d\'accueil',
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions',),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => false,
+        'show_in_admin_bar' => false,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-admin-home',
+        'can_export' => true,
+        'has_archive' => false,
+        'exclude_from_search' => true,
+        'publicly_queryable' => true,
+        'query_var' => 'home_entry',
+        'rewrite' => $rewrite,
+//        'capabilities' => $capabilities,
+    );
+    register_post_type('home_entry_post_type', $args);
+
+}
+
+// Hook sur l'action 'init'
+add_action('init', 'kub_register_home_post_type', 0);
 
 
 //======================================================================================================================

@@ -94,7 +94,7 @@ get_header();
 			<div class="row">
 	<?php
 	$args = array(
-		'post_type' => 'accueil',
+		'post_type' => 'home_entry_post_type',
 	);
 	$home_posts = new WP_Query( $args );
 
