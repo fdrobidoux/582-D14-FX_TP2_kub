@@ -59,7 +59,6 @@ $classes[] = "col-sm-offset-0";
 				echo woocommerce_get_product_thumbnail();
 			?>
 		</div>
-
 			<p class="product_title"><?php the_title(); ?></p>
 		</a>
 		<?php
