@@ -77,5 +77,4 @@ $classes[] = "col-sm-offset-0";
 			?>
 		</div>
 	</div>
-
 </div>

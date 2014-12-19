@@ -24,7 +24,6 @@ textarea.form-control {
 .navbar-toggle {
   height: 53px;
   padding: 0 20px;
-  margin: 0 0 0 21px;
   line-height: 53px;
   color: #34495e;
   border: none; }
@@ -32,5 +31,16 @@ textarea.form-control {
 /* ######### SHOP ########## */
 .products .well > .btn-group {
   height: 41px; }
+
+/* Breadcrumbs */
+.woocommerce-breadcrumb {
+  padding: 10px 20px;
+  background-color: #eee;
+  border-radius: 15px; }
+
+@media (max-width: 335px) {
+  .navbar-brand {
+    position: absolute;
+    font-size: 20px; } }
 
 /*# sourceMappingURL=kub.css.map */

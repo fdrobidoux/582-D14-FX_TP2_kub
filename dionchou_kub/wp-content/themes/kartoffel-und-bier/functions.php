@@ -306,4 +306,3 @@ function kub_register_script() {
 add_action('wp_enqueue_scripts', 'kub_register_script');
 
 
-
