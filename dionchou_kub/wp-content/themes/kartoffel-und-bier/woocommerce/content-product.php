@@ -34,10 +34,12 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 	$classes[] = 'first';
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
-$classes[] = "col-xs-12";
-$classes[] = "col-sm-3";
+$classes[] = "col-xs-8";
+$classes[] = "col-sm-6";
 $classes[] = "col-md-3";
 $classes[] = "col-lg-2";
+$classes[] = "col-xs-offset-2";
+$classes[] = "col-sm-offset-0";
 
 ?>
 <div <?php post_class( $classes ); ?>>

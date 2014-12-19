@@ -29,10 +29,8 @@ textarea.form-control {
   color: #34495e;
   border: none; }
 
-img {
-  max-width: 100%;
-  min-width: 100%; }
-
 /* ######### SHOP ########## */
+.products .well > .btn-group {
+  height: 41px; }
 
 /*# sourceMappingURL=kub.css.map */
