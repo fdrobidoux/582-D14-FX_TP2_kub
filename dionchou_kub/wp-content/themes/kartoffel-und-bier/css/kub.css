@@ -38,6 +38,7 @@ textarea.form-control {
   background-color: #eee;
   border-radius: 15px; }
 
+/* Col */
 @media (max-width: 335px) {
   .navbar-brand {
     position: absolute;
