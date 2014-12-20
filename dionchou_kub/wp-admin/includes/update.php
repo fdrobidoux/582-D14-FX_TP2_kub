@@ -74,7 +74,7 @@ function find_core_auto_update() {
 	if ( ! $updates || empty( $updates->updates ) )
 		return false;
 
-	include_once(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
+	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 
 	$auto_update = false;
 	$upgrader = new WP_Automatic_Updater;
@@ -289,7 +289,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		 * Fires at the end of the update message container in each
 		 * row of the plugins list table.
 		 *
-		 * The dynamic portion of the hook name, $file, refers to the path
+		 * The dynamic portion of the hook name, `$file`, refers to the path
 		 * of the plugin's primary file relative to the plugins directory.
 		 *
 		 * @since 2.8.0
@@ -378,7 +378,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	 * Fires at the end of the update message container in each
 	 * row of the themes list table.
 	 *
-	 * The dynamic portion of the hook name, $theme_key, refers to
+	 * The dynamic portion of the hook name, `$theme_key`, refers to
 	 * the theme slug as found in the WordPress.org themes repository.
 	 *
 	 * @since 3.1.0
@@ -398,7 +398,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 }
 
 function maintenance_nag() {
-	include(ABSPATH . WPINC . '/version.php'); // include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
 	global $upgrading;
 	$nag = isset( $upgrading );
 	if ( ! $nag ) {

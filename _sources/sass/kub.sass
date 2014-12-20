@@ -1,3 +1,10 @@
+$color-default: #BDC3C7
+$color-inverse: #415B76
+$color-info:    #3498DB
+$color-warning: #F4D313
+$color-success: #58D68D
+$color-danger:  #E74C3C
+
 body
   padding-top: 76px
 
@@ -17,7 +24,7 @@ body
 textarea.form-control
   resize: none
 
-/* Rend le Carousel
+/* Rend le Carousel adapté
 
 #myCarousel .carousel-inner .item img
   max-height: 500px
@@ -25,11 +32,54 @@ textarea.form-control
 .navbar-toggle
   height: 53px
   padding: 0 20px
-  margin: 0 0 0 21px
   line-height: 53px
   color: #34495e
   border: none
 
-img
-  max-width: 100%
-  min-width: 100%
+/* ######### SHOP ########## */
+.products
+  .well > .btn-group
+    height: 41px
+    .added-to-cart
+
+
+/* Breadcrumbs */
+.woocommerce-breadcrumb
+  padding: 10px 20px
+  background-color: #eee
+  border-radius: 15px
+
+/* ########## Select ######### */
+=couleur-select($color)
+  .select2-drop &.select2-highlighted > .select2-result-label
+    background-color: $color
+/* Note: « .select-primary » est celui par défaut. pas besoin de le styler.
+/* Default
+.select-default
+  +couleur-select($color-default)
+/* Inverse
+.select-inverse
+  +couleur-select($color-inverse)
+/* Default
+.select-info
+  +couleur-select($color-info)
+/* Warning
+.select-warning
+  +couleur-select($color-warning)
+/* Success
+.select-success
+  +couleur-select($color-success)
+/* Danger
+.select-danger
+  +couleur-select($color-danger)
+
+@media (max-width: 335px)
+  .navbar-brand
+    position: absolute
+    font-size: 20px
+
+/* ######### Panier ######### */
+.cart_item > [class^="product"]
+  vertical-align: middle
+.product-remove .remove
+  color: $color-danger

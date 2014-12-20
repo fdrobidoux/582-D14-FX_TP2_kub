@@ -5,6 +5,9 @@ $(function(){
 
     $('.carousel').carousel({
         interval: 5000
-    })
+    });
+
+    // Pour les select stylés.
+    $("select").select2({dropdownCssClass: 'dropdown-inverse'});
 
 });

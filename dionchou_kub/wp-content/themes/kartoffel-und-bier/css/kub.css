@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   padding-top: 76px; }
 
@@ -16,20 +17,62 @@ body {
 textarea.form-control {
   resize: none; }
 
-/* Rend le Carousel */
+/* Rend le Carousel adapt├® */
 #myCarousel .carousel-inner .item img {
   max-height: 500px; }
 
 .navbar-toggle {
   height: 53px;
   padding: 0 20px;
-  margin: 0 0 0 21px;
   line-height: 53px;
   color: #34495e;
   border: none; }
 
-img {
-  max-width: 100%;
-  min-width: 100%; }
+/* ######### SHOP ########## */
+.products .well > .btn-group {
+  height: 41px; }
+
+/* Breadcrumbs */
+.woocommerce-breadcrumb {
+  padding: 10px 20px;
+  background-color: #eee;
+  border-radius: 15px; }
+
+/* ########## Select ######### */
+/* Note: ┬½ .select-primary ┬╗ est celui par d├®faut. pas besoin de le styler. */
+/* Default */
+.select2-drop .select-default.select2-highlighted > .select2-result-label {
+  background-color: #BDC3C7; }
+
+/* Inverse */
+.select2-drop .select-inverse.select2-highlighted > .select2-result-label {
+  background-color: #415B76; }
+
+/* Default */
+.select2-drop .select-info.select2-highlighted > .select2-result-label {
+  background-color: #3498DB; }
+
+/* Warning */
+.select2-drop .select-warning.select2-highlighted > .select2-result-label {
+  background-color: #F4D313; }
+
+/* Success */
+.select2-drop .select-success.select2-highlighted > .select2-result-label {
+  background-color: #58D68D; }
+
+/* Danger */
+.select2-drop .select-danger.select2-highlighted > .select2-result-label {
+  background-color: #E74C3C; }
+
+@media (max-width: 335px) {
+  .navbar-brand {
+    position: absolute;
+    font-size: 20px; } }
+/* ######### Panier ######### */
+.cart_item > [class^="product"] {
+  vertical-align: middle; }
+
+.product-remove .remove {
+  color: #E74C3C; }
 
 /*# sourceMappingURL=kub.css.map */

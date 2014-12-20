@@ -75,7 +75,7 @@ add_action('woocommerce_after_main_content', 'kub_theme_wrapper_end', 10);
 function wp_bootstrap_theme_support()
 {
     add_theme_support('post-thumbnails');      // wp thumbnails (sizes handled in functions.php)
-    set_post_thumbnail_size(300, 300, true);   // default thumb size
+//    set_post_thumbnail_size(300, 0, true);   // default thumb size
 
 //	// Add post format support - if these are not needed, comment them out
 //	add_theme_support( 'post-formats',      // post formats
@@ -304,6 +304,5 @@ function kub_register_script() {
 
 // hook sur l'action 'wp_enqueue_scripts'
 add_action('wp_enqueue_scripts', 'kub_register_script');
-
 
 

@@ -34,25 +34,33 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 	$classes[] = 'first';
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
+$classes[] = "col-xs-10";
+$classes[] = "col-sm-6";
+$classes[] = "col-md-3";
+$classes[] = "col-lg-2";
+$classes[] = "col-xs-offset-1";
+$classes[] = "col-sm-offset-0";
+
 ?>
-<li <?php post_class( $classes ); ?>>
-
+<div <?php post_class( $classes ); ?>>
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-
-	<a href="<?php the_permalink(); ?>">
-
-		<?php
-			/**
-			 * woocommerce_before_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_show_product_loop_sale_flash - 10
-			 * @hooked woocommerce_template_loop_product_thumbnail - 10
-			 */
-			do_action( 'woocommerce_before_shop_loop_item_title' );
-		?>
-
-		<h3><?php the_title(); ?></h3>
-
+	<div class="well well-sm">
+		<a href="<?php the_permalink(); ?>">
+			<div class="thumbnail">
+			<?php
+				/**
+				 * woocommerce_before_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_show_product_loop_sale_flash - 10
+				 * @hooked woocommerce_template_loop_product_thumbnail - 10
+				 */
+				// do_action( 'woocommerce_before_shop_loop_item_title' );
+				wc_get_template( 'loop/sale-flash.php' );
+				echo woocommerce_get_product_thumbnail();
+			?>
+		</div>
+			<p class="product_title"><?php the_title(); ?></p>
+		</a>
 		<?php
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
@@ -60,12 +68,14 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			 * @hooked woocommerce_template_loop_rating - 5
 			 * @hooked woocommerce_template_loop_price - 10
 			 */
-
-			do_action( 'woocommerce_after_shop_loop_item_title' );
+			// do_action( 'woocommerce_after_shop_loop_item_title' );
+			wc_get_template( 'loop/rating.php' );
 		?>
-
-	</a>
-
-	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
-
-</li>
+		<div class="btn-group">
+			<?php
+				wc_get_template( 'loop/price.php' );
+				wc_get_template( 'loop/add-to-cart.php' );
+			?>
+		</div>
+	</div>
+</div>
