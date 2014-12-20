@@ -2,8 +2,6 @@
 
 
 #masonery
-  .box-gutter
-    width: 0
   .box
     width: 100%
     padding: 20px
@@ -23,6 +21,7 @@
       line-height: 25px
       margin-bottom: 5px
       margin-top: 0
+      font-weight: bold
     time
       font-size: 12px
     p
@@ -30,98 +29,67 @@
     img
       border: 2px solid #eee
       border-radius: 3px
-      margin-top: 7px
-      margin-bottom: 10px
+      max-width: 100%
       &.attachment-post-thumbnail
         min-width: 100%
         border: none
         margin: 0
         padding: 0
-      &.alignright
-        float: right
-        margin-left: 10px
-      &.alignleft
-        float: left
-        margin-right: 10px
+      &.aligncenter, &.alignright, &.alignleft
+        display: block
+        margin: 10px auto
     figure
       text-align: center
-      display: inline-block
-      margin-top: 7px
-      margin-bottom: 15px
-      width: 100%
+      display: block
+      margin: 10px auto
+      padding: 5px
+      max-width: 100%
       border: 2px solid #eee
       border-radius: 6px
-      &.alignright
-        float: none
-        margin-left: 0
-      &.alignleft
-        float: none
-        margin-right: 0
+      &.alignright,
+      &.alignleft,
       &.aligncenter
         float: none
-        margin: 0 auto
       img
         border: none
         margin: 0
         padding: 0
-        max-width: 100%
-        max-height: 500px
       figcaption
-        padding-left: 5px
-        padding-right: 5px
-        text-align: center
+        margin: 0
+        padding: 0
         font-size: 11px
 
-//float: left;
-//Validerborder: 2px solid #eee;
-//Validermargin-right: 10px;
-//Validermargin-top: 7px;
-//Validermargin-bottom: 10px;
-
-//@media screen and (min-width: 321px)
-//  #masonery
-//    article
-//      figure
-//        width: 33%
-//        &.alignright
-//          float: right
-//          margin-left: 10px
-//        &.alignleft
-//          float: left
-//          margin-right: 10px
-//
-//
-//
-//
-//@media screen and (min-width: 321px)
-//  #masonery .box
-//    width: 100%
-//    &.small, &.medium
-//      width: 100%
-//    &.large, &.full
-//      width: 100%
-//
-//
-//
 
 
 @media screen and (min-width: 768px)
   #masonery
     article
+      img
+        &.aligncenter
+          display: block
+          float: none
+          margin: 0 auto
+        &.alignright
+          display: inline-block
+          float: right
+          margin-left: 10px
+        &.alignleft
+          display: inline-block
+          float: left
+          margin-right: 10px
       h2
         font-size: 40px
         line-height: 40px
       figure
-        width: 33%
         &.aligncenter
-          float: none
-          margin: 0 33%
+          float: block
+          margin: 10px auto
         &.alignright
           float: right
-          margin-left: 10px
+          margin: 7px 0 10px 10px
         &.alignleft
           float: left
-          margin-right: 10px
+          margin: 7px 10px 10px 0
     .box
       width: 50%
       &.small
@@ -156,12 +124,6 @@
         font-size: 18px
       p
         font-size: 18px
-      figure
-        width: 25%
-        img
-          max-height: 400px
-        figcaption
-          font-size: 13px
 
 
 

@@ -24,6 +24,11 @@ body
 .bottom-menu-inverse a
   color: #7795b4
 
+
+.navbar-brand
+  padding-left: 15px
+
+
 .navbar-inverse
   .navbar-nav > li > a, .navbar-brand
     color: #eaeff3
@@ -50,7 +55,9 @@ textarea.form-control
 .products
   .well > .btn-group
     height: 41px
-    .added-to-cart
+    //.added-to-cart
+
+
 
 
 /* Breadcrumbs */
@@ -83,16 +90,18 @@ textarea.form-control
 .select-danger
   +couleur-select($color-danger)
 
-@media (max-width: 335px)
-  .navbar-brand
-    position: absolute
-    font-size: 20px
+//@media (max-width: 335px)
+//  .navbar-brand
+//    position: absolute
+//    font-size: 20px
+//
+
 
 /* ######### Panier ######### */
 .cart_item > [class^="product"]
   vertical-align: middle
 .product-remove .remove
-  color: $color-dangerimg
+  color: $color-danger
   
 img  
   max-width: 100%
@@ -107,5 +116,11 @@ h2.visible-xs
   text-align: left
   line-height: 36px
   padding-top: 76px
+
+
+
+
+
+
 
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   padding-top: 76px; }
 
@@ -15,13 +16,16 @@ body {
 .bottom-menu-inverse a {
   color: #7795b4; }
 
+.navbar-brand {
+  padding-left: 15px; }
+
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
   color: #eaeff3; }
 
 textarea.form-control {
   resize: none; }
 
-/* Rend le Carousel */
+/* Rend le Carousel adapté */
 #myCarousel .carousel-inner {
   min-height: 450px; }
 
@@ -31,10 +35,52 @@ textarea.form-control {
 .navbar-toggle {
   height: 53px;
   padding: 0 20px;
-  margin: 0 0 0 21px;
   line-height: 53px;
   color: #34495e;
   border: none; }
+
+/* ######### SHOP ########## */
+.products .well > .btn-group {
+  height: 41px; }
+
+/* Breadcrumbs */
+.woocommerce-breadcrumb {
+  padding: 10px 20px;
+  background-color: #eee;
+  border-radius: 15px; }
+
+/* ########## Select ######### */
+/* Note: « .select-primary » est celui par défaut. pas besoin de le styler. */
+/* Default */
+.select2-drop .select-default.select2-highlighted > .select2-result-label {
+  background-color: #BDC3C7; }
+
+/* Inverse */
+.select2-drop .select-inverse.select2-highlighted > .select2-result-label {
+  background-color: #415B76; }
+
+/* Default */
+.select2-drop .select-info.select2-highlighted > .select2-result-label {
+  background-color: #3498DB; }
+
+/* Warning */
+.select2-drop .select-warning.select2-highlighted > .select2-result-label {
+  background-color: #F4D313; }
+
+/* Success */
+.select2-drop .select-success.select2-highlighted > .select2-result-label {
+  background-color: #58D68D; }
+
+/* Danger */
+.select2-drop .select-danger.select2-highlighted > .select2-result-label {
+  background-color: #E74C3C; }
+
+/* ######### Panier ######### */
+.cart_item > [class^="product"] {
+  vertical-align: middle; }
+
+.product-remove .remove {
+  color: #E74C3C; }
 
 img {
   max-width: 100%; }

@@ -311,13 +311,13 @@ add_filter( 'excerpt_more', 'kub_excerpt_more' );
 add_filter( 'the_content_more_link', 'kub_excerpt_more' );
 
 
-add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+//function remove_width_attribute( $html ) {
+//    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+//    return $html;
+//}
+//add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+//add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
-function remove_width_attribute( $html ) {
-    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-    return $html;
-}
 
 //======================================================================================================================
 //  METABOX
@@ -371,12 +371,21 @@ add_action('init', 'kub_initialize_cmb_Meta_Box', 9999);
 
 
 //======================================================================================================================
-//  FIGURE, IMAGE, CAPTION override
+// CORE
 //======================================================================================================================
 
 
-
-function fixed_img_caption_shortcode($attr, $content = null) {
+/**
+ * Remplace le shortcode pour figure & figcaption créé par l'éditeur
+ *
+ * Permet de régler un problème de validation quand l'utilisateur utilise plus d'une fois la même image dans un post.
+ * Retire les dimensions de l'image dans la balise IMG
+ *
+ * @param $attr
+ * @param null $content
+ * @return mixed|null|string|void
+ */
+function kub_fix_figure_figcaption_shortcode($attr, $content = null) {
     if ( ! isset( $attr['caption'] ) ) {
         if ( preg_match( '#((?:<a [^>]+>s*)?<img [^>]+>(?:s*</a>)?)(.*)#is', $content, $matches ) ) {
             $content = $matches[1];
@@ -395,14 +404,15 @@ function fixed_img_caption_shortcode($attr, $content = null) {
     if ( 1 > (int) $width || empty($caption) )
         return $content;
 
+    //
     if ( $id ) $id = 'data-attachement-id="' . esc_attr($id) . '" ';
-    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
+
+    $content = preg_replace( '/(width|height)="\d*"\s/', "", $content );
+
+    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: '.esc_attr($width).'px;">'
     . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
-add_shortcode( 'caption', 'fixed_img_caption_shortcode' );
-add_shortcode( 'wp_caption', 'fixed_img_caption_shortcode' );
+add_shortcode( 'caption', 'kub_fix_figure_figcaption_shortcode' );
+add_shortcode( 'wp_caption', 'kub_fix_figure_figcaption_shortcode' );
 
 
-//======================================================================================================================
-//  CORE
-//======================================================================================================================

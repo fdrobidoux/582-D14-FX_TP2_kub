@@ -8,13 +8,13 @@ $(function(){
 
     $('#masonery img').each(
         function(){
-            $(this).removeAttr('height');
+            //$(this).removeAttr('height');
         }
     );
 
     $('#masonery figure>img, #masonery .attachment-post-thumbnail').each(
         function(){
-            $(this).removeAttr('width');
+            //$(this).removeAttr('width');
         }
     );
 
@@ -35,7 +35,7 @@ function init_masonry() {
             //
             // Since Bootstrap 3 use padding to create gutter it seem logical to me tu use the same padding of 15px inside
             // the boxes so everything allign well with the rest of the site
-            gutter: '#masonery .box-gutter',
+            gutter: 0,
             itemSelector: '.box',
             isAnimated: true
         });

@@ -39,7 +39,7 @@ $classes[] = "col-xs-offset-1";
 $classes[] = "col-sm-6";
 $classes[] = "col-sm-offset-0";
 $classes[] = "col-md-3";
-$classes[] = "col-lg-2";
+$classes[] = "col-lg-3";
 
 ?>
 <div <?php post_class( $classes ); ?>>
