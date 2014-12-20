@@ -1,0 +1,167 @@
+/** For the display of post on home page */
+
+
+#masonery
+  .box-gutter
+    width: 0
+  .box
+    width: 100%
+    padding: 20px
+    display: inline-block
+    vertical-align: top
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+  article
+    text-align: left
+    padding: 10px
+    border: 2px solid #34495e
+    border-radius: 10px
+    background-color: #fff
+    h2
+      font-size: 25px
+      line-height: 25px
+      margin-bottom: 5px
+      margin-top: 0
+    time
+      font-size: 12px
+    p
+      font-size: 14px
+    img
+      border: 2px solid #eee
+      border-radius: 3px
+      margin-top: 7px
+      margin-bottom: 10px
+      &.attachment-post-thumbnail
+        min-width: 100%
+        border: none
+        margin: 0
+        padding: 0
+      &.alignright
+        float: right
+        margin-left: 10px
+      &.alignleft
+        float: left
+        margin-right: 10px
+    figure
+      text-align: center
+      display: inline-block
+      margin-top: 7px
+      margin-bottom: 15px
+      width: 100%
+      border: 2px solid #eee
+      border-radius: 6px
+      &.alignright
+        float: none
+        margin-left: 0
+      &.alignleft
+        float: none
+        margin-right: 0
+      &.aligncenter
+        float: none
+        margin: 0 auto
+      img
+        border: none
+        margin: 0
+        padding: 0
+        max-width: 100%
+        max-height: 500px
+      figcaption
+        padding-left: 5px
+        padding-right: 5px
+        text-align: center
+        font-size: 11px
+
+//float: left;
+//Validerborder: 2px solid #eee;
+//Validermargin-right: 10px;
+//Validermargin-top: 7px;
+//Validermargin-bottom: 10px;
+
+//@media screen and (min-width: 321px)
+//  #masonery
+//    article
+//      figure
+//        width: 33%
+//        &.alignright
+//          float: right
+//          margin-left: 10px
+//        &.alignleft
+//          float: left
+//          margin-right: 10px
+//
+//
+//
+//
+//@media screen and (min-width: 321px)
+//  #masonery .box
+//    width: 100%
+//    &.small, &.medium
+//      width: 100%
+//    &.large, &.full
+//      width: 100%
+//
+//
+//
+
+
+@media screen and (min-width: 768px)
+  #masonery
+    article
+      h2
+        font-size: 40px
+        line-height: 40px
+      figure
+        width: 33%
+        &.aligncenter
+          float: none
+          margin: 0 33%
+        &.alignright
+          float: right
+          margin-left: 10px
+        &.alignleft
+          float: left
+          margin-right: 10px
+    .box
+      width: 50%
+      &.small
+        width: 50%
+      &.medium
+        width: 50%
+      &.large
+        width: 100%
+      &.full
+        width: 100%
+
+
+
+@media screen and (min-width: 992px)
+  #masonery
+    .box
+      width: 25%
+      &.small
+        width: 25%
+      &.medium
+        width: 50%
+      &.large
+        width: 75%
+      &.full
+        width: 100%
+    article
+      h2
+        font-size: 53px
+        line-height: 53px
+        margin-bottom: 15px
+      time
+        font-size: 18px
+      p
+        font-size: 18px
+      figure
+        width: 25%
+        img
+          max-height: 400px
+        figcaption
+          font-size: 13px
+
+
+

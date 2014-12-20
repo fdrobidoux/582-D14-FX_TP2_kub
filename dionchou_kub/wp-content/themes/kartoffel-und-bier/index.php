@@ -1,83 +1,135 @@
 <?php
 /**
  * index.php
- *
  * Project: kartoffel-und-bier
  * User:    Félix Dion Robidoux
  * Date:    02/12/2014
  * Time:    7:59 PM
- *
- * EN DERNIER RECOURS
  */
 
 get_header();
 
 ?>
-<!--INDEX.PHP-->
-<section id="Main" class="container">
-	<div class="row">
-		<div class="col-sm-5 col-md-5">
-			<div id="myCarousel" class="carousel slide" data-interval="true">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item active">
-						<img src="<?=get_template_directory_uri()?>/img/hourlgass.jpg"
-						     width="100%" alt="">
-						<div class="carousel-caption">
-							<h3>Thumbnail label</h3>
-							<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
-						</div>
-					</div>
+	<!--INDEX.PHP-->
+<!--	<div class="jumbotron">-->
+<!--		<div id="Main" class="container-fluid">-->
+<!--			<div class="row">-->
+<!--				<div class="col-xs-12">-->
+<!---->
+<!---->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+	<main role="main">
+		<div class="container">
+			<div id="masonery" class="row">
+				<div class="box-gutter"></div>
+				<div class="box-sizer col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+				<div class="box full">
+					<?php
+					$args = array(
+						'post_type' => 'product',
+						'meta_query' => array(
+							'relation' => 'OR',
+							array( // Simple products type
+								'key' => '_sale_price',
+								'value' => 0,
+								'compare' => '>',
+								'type' => 'numeric'
+							),
+							array( // Variable products type
+								'key' => '_min_variation_sale_price',
+								'value' => 0,
+								'compare' => '>',
+								'type' => 'numeric'
+							)
+						)
+					);
+					$onsale = new WP_Query( $args );
 
-					<div class="item">
-						<img src="<?=get_template_directory_uri()?>/img/irish-red-ale-all-grain-kit-w-dry-yeast-4.gif" width="100%"
-						     alt="">
-						<div class="carousel-caption">
-							<h3>Thumbnail label</h3>
-							<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
+					if($onsale->have_posts()) {
+
+						?>
+						<div id="myCarousel" class="carousel slide" data-interval="true">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<?php
+								$active = true;
+								for($count = 0 ; $count < $onsale->post_count; $count++) {
+									?>
+									<li data-target="#myCarousel" data-slide-to="<?=$count?>"<?=$active ? ' class="active"' : ''?>></li>
+									<?php
+									$active = false;
+								}
+								?>
+							</ol>
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+								<?php
+								$active = true;
+								while($onsale->have_posts()) {
+
+									$onsale->the_post();
+									?>
+
+									<div class="item<?= $active ? ' active' : ''?>">
+										<a href="<?=$product->get_permalink();?>">
+											<!--								--><?//=$product->get_image('full');?>
+											<?=$product->get_image(array(450,450));?>
+											<div class="carousel-caption">
+												<?php the_title( '<h2>', '</h2>' ); ?>
+												<?php the_excerpt(); ?>
+												<div><?=$product->get_price_html();?></div>
+											</div>
+										</a>
+									</div>
+									<?php
+									$active = false;
+								}
+								?>
+							</div>
+							<!-- Controls -->
+							<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
+							<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
 						</div>
-					</div>
-					<div class="item">
-						<img src="<?=get_template_directory_uri()?>/img/tallwheat.jpg" width="100%"
-						     alt="">
-						<div class="carousel-caption">
-							<h3>Thumbnail label</h3>
-							<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
-						</div>
-					</div>
+					<?php
+					}
+					?>
 				</div>
-				<!-- Controls -->
-				<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
-				<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
+				<?php
+				$args = array(
+					'post_type' => 'accueil',
+				);
+				$home_posts = new WP_Query( $args );
+
+
+				if ( $home_posts->have_posts()){
+
+					while($home_posts->have_posts()){
+
+						$home_posts->the_post();
+
+				?>
+				<div class="box <?=get_post_meta( $id, '_kub_dispwidth', true );?> <?= implode(' ',get_post_class()); ?>">
+					<article class="clearfix">
+						<?php the_post_thumbnail();?>
+						<header>
+							<h2><?php the_title(); ?></h2>
+							<time datetime="<?php echo get_the_date('Y-m-d')?>"><?php echo get_the_date(get_option('date_format'))?></time>
+						</header>
+						<?php the_content(); ?>
+						<footer>
+						</footer>
+					</article>
+				</div>
+					<?php
+					}
+				}
+				?>
 			</div>
 		</div>
-		<!-- I tell ya what, I dunno. -->
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6
-					col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
-			<img src="<?=get_template_directory_uri()?>/img/flaredpilsner.jpg"
-			     class="img-thumbnail pull-right" alt="Une image" />
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores, autem
-				cumque deleniti doloremque doloribus eos eum ex facere ipsum laboriosam laborum
-				mollitia odit quaerat quidem reprehenderit veritatis! Distinctio!</p>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores, autem
-				cumque deleniti doloremque doloribus eos eum ex facere ipsum laboriosam laborum
-				mollitia odit quaerat quidem reprehenderit veritatis! Distinctio!</p>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores, autem
-				cumque deleniti doloremque doloribus eos eum ex facere ipsum laboriosam laborum
-				mollitia odit quaerat quidem reprehenderit veritatis! Distinctio!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi, at atque autem consectetur laboriosam necessitatibus officiis perspiciatis praesentium, quam quas rem saepe sit vero vitae. Aut quo saepe velit.</p>
-		</div>
-	</div>
-</section>
-
+	</main>
 <?php
-	get_footer();
+get_footer();
 ?>
