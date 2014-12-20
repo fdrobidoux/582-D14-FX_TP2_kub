@@ -201,7 +201,7 @@ p {
 .woocommerce-breadcrumb {
   padding: 10px 20px;
   background-color: #eee;
-  border-radius: 15px; }
+  border-radius: 8px; }
 
 /* ########## Select ######### */
 /* Note: « .select-primary » est celui par défaut. pas besoin de le styler. */

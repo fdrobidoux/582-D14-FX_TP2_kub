@@ -6,6 +6,7 @@
 
 get_header(); // This fxn gets the header.php file and renders it ?>
 <!--PAGE.PHP-->
+<div class="container">
 	<div id="primary" class="row-fluid">
 		<div id="content" role="main" class="span8 offset2">
 
@@ -44,4 +45,5 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 		</div><!-- #content .site-content -->
 	</div><!-- #primary .content-area -->
+</div>
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>
