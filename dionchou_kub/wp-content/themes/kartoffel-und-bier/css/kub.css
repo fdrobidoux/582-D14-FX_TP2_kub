@@ -68,5 +68,11 @@ textarea.form-control {
   .navbar-brand {
     position: absolute;
     font-size: 20px; } }
+/* ######### Panier ######### */
+.cart_item > [class^="product"] {
+  vertical-align: middle; }
+
+.product-remove .remove {
+  color: #E74C3C; }
 
 /*# sourceMappingURL=kub.css.map */

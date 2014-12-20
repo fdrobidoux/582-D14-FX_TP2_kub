@@ -30,7 +30,7 @@ if ( ! woocommerce_products_will_display() )
 		printf( __( 'Showing all <span class="label label-success">%d</span> results', 'woocommerce' ), $total );
 	} else {
 		printf( _x( 'Showing <span class="label label-info">%1$d&ndash;%2$d</span> of <span
-class="label label-impotantr">%3$d
+class="label label-important">%3$d
 </span>
 results', '%1$d = first, %2$d = last,
 		%3$d = total', 'woocommerce' ), $first, $last, $total );

@@ -1,3 +1,10 @@
+$color-default: #BDC3C7
+$color-inverse: #415B76
+$color-info:    #3498DB
+$color-warning: #F4D313
+$color-success: #58D68D
+$color-danger:  #E74C3C
+
 body
   padding-top: 76px
 
@@ -49,24 +56,30 @@ textarea.form-control
 /* Note: « .select-primary » est celui par défaut. pas besoin de le styler.
 /* Default
 .select-default
-  +couleur-select(#BDC3C7)
+  +couleur-select($color-default)
 /* Inverse
 .select-inverse
-  +couleur-select(#415B76)
+  +couleur-select($color-inverse)
 /* Default
 .select-info
-  +couleur-select(#3498DB)
+  +couleur-select($color-info)
 /* Warning
 .select-warning
-  +couleur-select(#F4D313)
+  +couleur-select($color-warning)
 /* Success
 .select-success
-  +couleur-select(#58D68D)
+  +couleur-select($color-success)
 /* Danger
 .select-danger
-  +couleur-select(#E74C3C)
+  +couleur-select($color-danger)
 
 @media (max-width: 335px)
   .navbar-brand
     position: absolute
     font-size: 20px
+
+/* ######### Panier ######### */
+.cart_item > [class^="product"]
+  vertical-align: middle
+.product-remove .remove
+  color: $color-danger

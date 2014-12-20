@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wc_print_notices();
 
 do_action( 'woocommerce_before_cart' ); ?>
-
-<form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 <?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-<table class="shop_table cart" cellspacing="0">
+<table class="shop_table cart table table-responsive" cellspacing="0">
 	<thead>
 		<tr>
 			<th class="product-remove">&nbsp;</th>
@@ -42,7 +42,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-remove">
 						<?php
-							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s"><i class="fui-cross"></i></a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
 						?>
 					</td>
 
@@ -135,7 +135,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
 
-</form>
+		</form>
+</div>
 
 <div class="cart-collaterals">
 
