@@ -253,4 +253,10 @@ h2.visible-xs {
   line-height: 36px;
   padding-top: 76px; }
 
+.shipping_calculator {
+  clear: both; }
+
+.shipping-calculator-button {
+  margin-bottom: 20px; }
+
 /*# sourceMappingURL=kub.css.map */

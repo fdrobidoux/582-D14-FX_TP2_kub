@@ -21,6 +21,6 @@ echo apply_filters( 'woocommerce_loop_add_to_cart_link',
 			? 'btn btn-success add_to_cart_button'
 			: 'btn btn-default',                        // class="button []
 		esc_attr( $product->product_type ),             // class="[...]product_type_[]"
-		$product->add_to_cart_text()        // >[]</a>
+		$product->add_to_cart_text()                    // >[]</a>
 	),
 $product );
