@@ -22,6 +22,6 @@ class="%s product_type_%s">%s</a>',
 			? 'btn btn-success add_to_cart_button'
 			: 'btn btn-default',                        // class="button []
 		esc_attr( $product->product_type ),             // class="[...]product_type_[]"
-		$product->add_to_cart_text()        // >[]</a>
+		$product->add_to_cart_text()                    // >[]</a>
 	),
 $product );

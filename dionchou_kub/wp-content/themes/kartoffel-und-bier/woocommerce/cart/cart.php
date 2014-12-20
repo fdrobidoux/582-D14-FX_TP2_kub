@@ -109,8 +109,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 		do_action( 'woocommerce_cart_contents' );
 		?>
 		<tr>
-			<td colspan="6" class="actions">
-
+			<td colspan="6" class="actions text-right">
 				<?php if ( WC()->cart->coupons_enabled() ) { ?>
 					<div class="coupon">
 
@@ -121,7 +120,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 					</div>
 				<?php } ?>
 
-				<input type="submit" class="button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> <input type="submit" class="checkout-button button alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
+				<input type="submit" class="btn btn-sm btn-info" name="update_cart" value="<?php
+					_e( 'Update
+				Cart',	'woocommerce' ); ?>" /> <input type="submit" class="checkout-button btn btn-sm btn-success alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
 
 				<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 

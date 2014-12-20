@@ -37,7 +37,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 $classes[] = "col-xs-10";
 $classes[] = "col-sm-6";
 $classes[] = "col-md-3";
-$classes[] = "col-lg-2";
+$classes[] = "col-lg-3";
 $classes[] = "col-xs-offset-1";
 $classes[] = "col-sm-offset-0";
 

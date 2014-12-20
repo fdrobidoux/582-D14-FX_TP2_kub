@@ -75,4 +75,10 @@ textarea.form-control {
 .product-remove .remove {
   color: #E74C3C; }
 
+.shipping_calculator {
+  clear: both; }
+
+.shipping-calculator-button {
+  margin-bottom: 20px; }
+
 /*# sourceMappingURL=kub.css.map */
