@@ -1,0 +1,123 @@
+/** For the display of post on home page */
+#masonery .box-gutter {
+  width: 0; }
+#masonery .box {
+  width: 100%;
+  padding: 20px;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+#masonery article {
+  text-align: left;
+  padding: 10px;
+  border: 2px solid #34495e;
+  border-radius: 10px;
+  background-color: #fff; }
+  #masonery article h2 {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 5px;
+    margin-top: 0; }
+  #masonery article time {
+    font-size: 12px; }
+  #masonery article p {
+    font-size: 14px; }
+  #masonery article img {
+    border: 2px solid #eee;
+    border-radius: 3px;
+    margin-top: 7px;
+    margin-bottom: 10px; }
+    #masonery article img.attachment-post-thumbnail {
+      min-width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0; }
+    #masonery article img.alignright {
+      float: right;
+      margin-left: 10px; }
+    #masonery article img.alignleft {
+      float: left;
+      margin-right: 10px; }
+  #masonery article figure {
+    text-align: center;
+    display: inline-block;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 6px; }
+    #masonery article figure.alignright {
+      float: none;
+      margin-left: 0; }
+    #masonery article figure.alignleft {
+      float: none;
+      margin-right: 0; }
+    #masonery article figure.aligncenter {
+      float: none;
+      margin: 0 auto; }
+    #masonery article figure img {
+      border: none;
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      max-height: 500px; }
+    #masonery article figure figcaption {
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center;
+      font-size: 11px; }
+
+@media screen and (min-width: 768px) {
+  #masonery article h2 {
+    font-size: 40px;
+    line-height: 40px; }
+  #masonery article figure {
+    width: 33%; }
+    #masonery article figure.aligncenter {
+      float: none;
+      margin: 0 33%; }
+    #masonery article figure.alignright {
+      float: right;
+      margin-left: 10px; }
+    #masonery article figure.alignleft {
+      float: left;
+      margin-right: 10px; }
+  #masonery .box {
+    width: 50%; }
+    #masonery .box.small {
+      width: 50%; }
+    #masonery .box.medium {
+      width: 50%; }
+    #masonery .box.large {
+      width: 100%; }
+    #masonery .box.full {
+      width: 100%; } }
+@media screen and (min-width: 992px) {
+  #masonery .box {
+    width: 25%; }
+    #masonery .box.small {
+      width: 25%; }
+    #masonery .box.medium {
+      width: 50%; }
+    #masonery .box.large {
+      width: 75%; }
+    #masonery .box.full {
+      width: 100%; }
+  #masonery article h2 {
+    font-size: 53px;
+    line-height: 53px;
+    margin-bottom: 15px; }
+  #masonery article time {
+    font-size: 18px; }
+  #masonery article p {
+    font-size: 18px; }
+  #masonery article figure {
+    width: 25%; }
+    #masonery article figure img {
+      max-height: 400px; }
+    #masonery article figure figcaption {
+      font-size: 13px; } }
+
+/*# sourceMappingURL=kub-masonery.css.map */

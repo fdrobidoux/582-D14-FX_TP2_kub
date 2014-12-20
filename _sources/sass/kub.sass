@@ -5,11 +5,18 @@ $color-warning: #F4D313
 $color-success: #58D68D
 $color-danger:  #E74C3C
 
+
+
 body
   padding-top: 76px
 
-.bottom-menu-list li
-  display: block
+.bottom-menu .bottom-menu-brand
+  margin: 0 0 15px 0
+
+.bottom-menu-list
+  margin: 0
+  li
+    display: block
 
 #Main
   padding: 60px 0
@@ -26,8 +33,11 @@ textarea.form-control
 
 /* Rend le Carousel adapté
 
+#myCarousel .carousel-inner
+  min-height: 450px
+
 #myCarousel .carousel-inner .item img
-  max-height: 500px
+  min-height: 450px
 
 .navbar-toggle
   height: 53px
@@ -82,4 +92,20 @@ textarea.form-control
 .cart_item > [class^="product"]
   vertical-align: middle
 .product-remove .remove
-  color: $color-danger
+  color: $color-dangerimg
+  
+img  
+  max-width: 100%
+
+main
+  padding-top: 30px
+  padding-bottom: 30px
+
+
+h2.visible-xs
+  font-size: 36px
+  text-align: left
+  line-height: 36px
+  padding-top: 76px
+
+
