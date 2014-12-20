@@ -193,6 +193,10 @@ p {
   color: #34495e;
   border: none; }
 
+@media (max-width: 335px) {
+  .navbar-brand {
+    position: absolute;
+    font-size: 20px; } }
 /* ######### SHOP ########## */
 .products .well > .btn-group {
   height: 41px; }
