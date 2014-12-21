@@ -64,7 +64,8 @@ get_header();
 
 							<div class="item<?= $active ? ' active' : ''?>">
 								<a href="<?=$product->get_permalink();?>">
-								<?=$product->get_image('full');?>
+<!--								--><?//=$product->get_image('full');?>
+								<?=$product->get_image(array(450,450));?>
 								<div class="carousel-caption">
 									<?php the_title( '<h2>', '</h2>' ); ?>
 									<?php the_excerpt(); ?>
@@ -94,7 +95,7 @@ get_header();
 			<div class="row">
 	<?php
 	$args = array(
-		'post_type' => 'home_entry_post_type',
+		'post_type' => 'accueil',
 	);
 	$home_posts = new WP_Query( $args );
 
@@ -110,7 +111,7 @@ get_header();
 					<?php
 					if ( has_post_thumbnail() ) {
 
-						echo get_the_post_thumbnail( $post_id, 'full' );
+						echo get_the_post_thumbnail( $post_id );
 					?>
 <!--							the_post_thumbnail();-->
 					<?php
@@ -131,7 +132,7 @@ get_header();
 					<?php
 					if ( has_post_thumbnail() ) {
 
-						echo get_the_post_thumbnail( $post_id, 'full' );
+						echo get_the_post_thumbnail( $post_id );
 					?>
 <!--							the_post_thumbnail();-->
 					<?php

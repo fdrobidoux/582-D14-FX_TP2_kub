@@ -11,22 +11,27 @@
 	<footer class="bottom-menu bottom-menu-large bottom-menu-inverse">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-3">
-					<a href="<?php echo home_url(); ?>" class="bottom-menu-brand">Kartoffel Und Bier</a>
+				<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-12 col-md-6">
+							<a href="<?php echo home_url(); ?>" class="bottom-menu-brand">Kartoffel Und Bier</a>
+						</div>
+						<div class="col-sm-12 col-md-6">
+						<?php
+							wp_nav_menu(
+								array(
+									'menu'           => 'footer_links', /* menu name */
+									'menu_class'     => 'bottom-menu-list',
+									'theme_location' => 'footer_links', /* where in the theme it's assigned */
+									'container'      => 'false' /* container class */
+								)
+							);
+						?>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-3 col-sm-3">
-				<?php
-					wp_nav_menu(
-						array(
-							'menu'           => 'footer_links', /* menu name */
-							'menu_class'     => 'bottom-menu-list',
-							'theme_location' => 'footer_links', /* where in the theme it's assigned */
-							'container'      => 'false' /* container class */
-						)
-					);
-				?>
-				</div>
-				<div class="col-sm-6 col-md-6">
+				<div id="contact" class="col-sm-6 col-md-6">
+					<h2 class="visible-xs">Nous contacter</h2>
 					<form action="#" method="POST" role="form">
 						<div class="form-group">
 							<label class="sr-only" for="txtNom">Nom</label>

@@ -1,0 +1,133 @@
+/** For the display of post on home page */
+@import variables
+
+#masonery
+  .box
+    width: 100%
+    padding: 15px
+    display: inline-block
+    vertical-align: top
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+  article
+    text-align: left
+    padding: 10px
+    border: 2px solid #34495e
+    border-radius: 10px
+    background-color: #fff
+    h2
+      font-size: 25px
+      line-height: 25px
+      margin-bottom: 5px
+      margin-top: 0
+      font-weight: bold
+    time
+      font-size: 12px
+    img
+      border: 2px solid #eee
+      border-radius: 3px
+      max-width: 100%
+      &.attachment-post-thumbnail
+        min-width: 100%
+        border: none
+        margin: 0
+        padding: 0
+      &.aligncenter, &.alignright, &.alignleft
+        display: block
+        margin: 10px auto
+    figure
+      text-align: center
+      display: block
+      margin: 10px auto
+      padding: 5px
+      max-width: 100%
+      border: 2px solid #eee
+      border-radius: 6px
+      &.alignright,
+      &.alignleft,
+      &.aligncenter
+        float: none
+      img
+        border: none
+        margin: 0
+        padding: 0
+      figcaption
+        margin: 0
+        padding: 0
+        font-size: 11px
+        line-height: 1.1
+        @media screen and (min-width: $break-small)
+          font-size: 12px
+        @media screen and (min-width: $break-large)
+          font-size: 13px
+
+
+
+
+@media screen and (min-width: $break-small)
+  #masonery
+    article
+      img
+        &.aligncenter
+          display: block
+          float: none
+          margin: 0 auto
+        &.alignright
+          display: inline-block
+          float: right
+          margin-left: 10px
+        &.alignleft
+          display: inline-block
+          float: left
+          margin-right: 10px
+      h2
+        font-size: 40px
+        line-height: 40px
+      figure
+        &.aligncenter
+          float: block
+          margin: 10px auto
+        &.alignright
+          float: right
+          margin: 7px 0 10px 10px
+        &.alignleft
+          float: left
+          margin: 7px 10px 10px 0
+    .box
+      width: 50%
+      &.small
+        width: 50%
+      &.medium
+        width: 50%
+      &.large
+        width: 100%
+      &.full
+        width: 100%
+
+
+
+@media screen and (min-width: $break-medium)
+  #masonery
+    .box
+      width: 25%
+      &.small
+        width: 25%
+      &.medium
+        width: 50%
+      &.large
+        width: 75%
+      &.full
+        width: 100%
+    article
+      h2
+        font-size: 53px
+        line-height: 53px
+        margin-bottom: 15px
+      time
+        font-size: 18px
+      //p
+      //  font-size: 18px
+
+
+
