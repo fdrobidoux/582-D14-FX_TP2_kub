@@ -193,10 +193,6 @@ p {
   color: #34495e;
   border: none; }
 
-@media (max-width: 335px) {
-  .navbar-brand {
-    position: absolute;
-    font-size: 20px; } }
 /* ######### SHOP ########## */
 .products .well > .btn-group {
   height: 41px; }
@@ -205,7 +201,7 @@ p {
 .woocommerce-breadcrumb {
   padding: 10px 20px;
   background-color: #eee;
-  border-radius: 8px; }
+  border-radius: 15px; }
 
 /* ########## Select ######### */
 /* Note: « .select-primary » est celui par défaut. pas besoin de le styler. */
@@ -252,11 +248,5 @@ h2.visible-xs {
   text-align: left;
   line-height: 36px;
   padding-top: 76px; }
-
-.shipping_calculator {
-  clear: both; }
-
-.shipping-calculator-button {
-  margin-bottom: 20px; }
 
 /*# sourceMappingURL=kub.css.map */
