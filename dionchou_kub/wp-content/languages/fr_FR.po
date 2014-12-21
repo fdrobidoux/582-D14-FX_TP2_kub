@@ -1559,7 +1559,7 @@ msgctxt "admin color scheme"
 msgid "Coffee"
 msgstr "Café"
 
-#: wp-includes/class-wp-image-editor.php:282
+#: wp-includes/class-wp-image-editor.php:283
 msgid "Attempted to set image quality outside of the range [1,100]."
 msgstr "Tentative de mise en place d&rsquo;une qualité d&rsquo;image en dehors de l&rsquo;intervalle [1100]."
 
@@ -4012,7 +4012,7 @@ msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out 
 msgstr "Connecté en tant que <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Se déconnecter de ce compte\">Se déconnecter&nbsp;?</a>"
 
 #: wp-includes/class-wp-image-editor-gd.php:177
-#: wp-includes/class-wp-image-editor-imagick.php:235
+#: wp-includes/class-wp-image-editor-imagick.php:237
 msgid "Could not calculate resized image dimensions"
 msgstr "Impossible de lire la taille de l&rsquo;image redimensionnée"
 
@@ -5340,7 +5340,7 @@ msgstr " "
 msgid "PM"
 msgstr " "
 
-#: wp-includes/class-wp-image-editor-imagick.php:201
+#: wp-includes/class-wp-image-editor-imagick.php:203
 msgid "Could not read image size"
 msgstr "Impossible de lire la taille de l&rsquo;image"
 
