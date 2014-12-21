@@ -11,20 +11,9 @@ get_header();
 
 ?>
 	<!--INDEX.PHP-->
-<!--	<div class="jumbotron">-->
-<!--		<div id="Main" class="container-fluid">-->
-<!--			<div class="row">-->
-<!--				<div class="col-xs-12">-->
-<!---->
-<!---->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
 	<main role="main">
 		<div class="container">
 			<div id="masonery" class="row">
-				<div class="box-gutter"></div>
 				<div class="box-sizer col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 				<div class="box full">
 					<?php
@@ -75,12 +64,13 @@ get_header();
 
 									<div class="item<?= $active ? ' active' : ''?>">
 										<a href="<?=$product->get_permalink();?>">
-											<!--								--><?//=$product->get_image('full');?>
-											<?=$product->get_image(array(450,450));?>
-											<div class="carousel-caption">
+											<div class="image col-md-6 col-lg-6">
+												<?=woocommerce_get_product_thumbnail('shop_single');?>
+											</div>
+											<div class="infos col-md-6 col-lg-6">
+												<div class="product-prices clearfix"><?=$product->get_price_html();?></div>
 												<?php the_title( '<h2>', '</h2>' ); ?>
-												<?php the_excerpt(); ?>
-												<div><?=$product->get_price_html();?></div>
+												<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 											</div>
 										</a>
 									</div>
@@ -92,6 +82,9 @@ get_header();
 							<!-- Controls -->
 							<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
 							<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
+							<div class="saleflash-container">
+							<div class="onsale">Promo!</div>
+							</div>
 						</div>
 					<?php
 					}

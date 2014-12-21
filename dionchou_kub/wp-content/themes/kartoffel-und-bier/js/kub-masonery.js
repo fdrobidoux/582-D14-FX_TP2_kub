@@ -8,13 +8,13 @@ $(function(){
 
     $('#masonery img').each(
         function(){
-            //$(this).removeAttr('height');
+            $(this).removeAttr('height');
+            $(this).removeAttr('width');
         }
     );
 
     $('#masonery figure>img, #masonery .attachment-post-thumbnail').each(
         function(){
-            //$(this).removeAttr('width');
         }
     );
 

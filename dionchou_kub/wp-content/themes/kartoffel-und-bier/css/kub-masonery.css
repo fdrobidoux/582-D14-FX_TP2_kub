@@ -1,7 +1,7 @@
 /** For the display of post on home page */
 #masonery .box {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
@@ -21,8 +21,6 @@
     font-weight: bold; }
   #masonery article time {
     font-size: 12px; }
-  #masonery article p {
-    font-size: 14px; }
   #masonery article img {
     border: 2px solid #eee;
     border-radius: 3px;
@@ -52,7 +50,14 @@
     #masonery article figure figcaption {
       margin: 0;
       padding: 0;
-      font-size: 11px; }
+      font-size: 11px;
+      line-height: 1.1; }
+      @media screen and (min-width: 768px) {
+        #masonery article figure figcaption {
+          font-size: 12px; } }
+      @media screen and (min-width: 1200px) {
+        #masonery article figure figcaption {
+          font-size: 13px; } }
 
 @media screen and (min-width: 768px) {
   #masonery article img.aligncenter {
@@ -105,8 +110,6 @@
     line-height: 53px;
     margin-bottom: 15px; }
   #masonery article time {
-    font-size: 18px; }
-  #masonery article p {
     font-size: 18px; } }
 
 /*# sourceMappingURL=kub-masonery.css.map */

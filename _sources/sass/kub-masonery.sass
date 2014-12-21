@@ -1,10 +1,10 @@
 /** For the display of post on home page */
-
+@import variables
 
 #masonery
   .box
     width: 100%
-    padding: 20px
+    padding: 15px
     display: inline-block
     vertical-align: top
     -webkit-box-sizing: border-box
@@ -24,8 +24,6 @@
       font-weight: bold
     time
       font-size: 12px
-    p
-      font-size: 14px
     img
       border: 2px solid #eee
       border-radius: 3px
@@ -58,10 +56,16 @@
         margin: 0
         padding: 0
         font-size: 11px
+        line-height: 1.1
+        @media screen and (min-width: $break-small)
+          font-size: 12px
+        @media screen and (min-width: $break-large)
+          font-size: 13px
 
 
 
-@media screen and (min-width: 768px)
+
+@media screen and (min-width: $break-small)
   #masonery
     article
       img
@@ -103,7 +107,7 @@
 
 
 
-@media screen and (min-width: 992px)
+@media screen and (min-width: $break-medium)
   #masonery
     .box
       width: 25%
@@ -122,8 +126,8 @@
         margin-bottom: 15px
       time
         font-size: 18px
-      p
-        font-size: 18px
+      //p
+      //  font-size: 18px
 
 
 
