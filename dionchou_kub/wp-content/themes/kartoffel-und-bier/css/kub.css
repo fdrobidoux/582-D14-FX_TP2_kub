@@ -199,9 +199,13 @@ p {
 
 /* Breadcrumbs */
 .woocommerce-breadcrumb {
-  padding: 10px 20px;
+  width: 100%;
+  position: fixed;
+  top: 76px;
+  right: 0;
   background-color: #eee;
-  border-radius: 15px; }
+  padding: 5px 0;
+  z-index: 1029; }
 
 /* ########## Select ######### */
 /* Note: « .select-primary » est celui par défaut. pas besoin de le styler. */

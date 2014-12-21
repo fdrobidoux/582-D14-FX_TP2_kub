@@ -26,7 +26,7 @@ global $post, $woocommerce, $product;
 			$attachment_count = count( $product->get_gallery_attachment_ids() );
 
 			if ( $attachment_count > 0 ) {
-				$gallery = '[product-gallery]';
+				$gallery = '[product-gallery-'.$post->ID.']';
 			} else {
 				$gallery = '';
 			}
