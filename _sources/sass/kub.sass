@@ -41,6 +41,7 @@ textarea.form-control
     position: absolute
     font-size: 20px
 
+
 /* ######### SHOP ########## */
 .products
   .well > .btn-group
@@ -54,6 +55,9 @@ textarea.form-control
   background-color: #eee
   border-radius: 8px
 
+
+/* ########## Select ######### */
+/* ########## Select ######### */
 /* ########## Select ######### */
 =couleur-select($color)
   .select2-drop &.select2-highlighted > .select2-result-label
@@ -80,11 +84,51 @@ textarea.form-control
 
 
 /* ######### Panier ######### */
+/* ######### Panier ######### */
+/* ######### Panier ######### */
 .cart_item > [class^="product"]
   vertical-align: middle
+
 .product-remove .remove
   color: $color-danger
+
 .shipping_calculator
   clear: both
+
 .shipping-calculator-button
   margin-bottom: 20px
+
+.title-total-panier
+  margin-top: 0
+  margin-bottom: 15px
+
+.cart_totals
+  tr
+    &:nth-child(2n) th
+      background-color: #eff
+    &:nth-child(2n+1) th
+      background-color: #dfd
+
+.shipping_calculator
+  a
+    margin-bottom: 0
+    -webkit-border-bottom-left-radius: 0
+    border-bottom-left-radius: 0
+    -webkit-border-bottom-right-radius: 0
+    border-bottom-right-radius: 0
+
+.shipping-calculator-form
+  background-color: #efd
+  padding: 20px 0
+  -webkit-border-bottom-left-radius: 8px
+  border-bottom-left-radius: 8px
+  -webkit-border-bottom-right-radius: 8px
+  border-bottom-right-radius: 8px
+  .row
+    margin: 10px 0 10px 0
+    &:first-child
+      margin-top: 0
+  #calc_shipping_postcode
+    width: 100%
+
+

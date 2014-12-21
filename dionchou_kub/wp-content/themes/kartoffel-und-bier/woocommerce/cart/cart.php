@@ -122,7 +122,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 				<input type="submit" class="btn btn-sm btn-info" name="update_cart" value="<?php
 					_e( 'Update
-				Cart',	'woocommerce' ); ?>" /> <input type="submit" class="checkout-button btn btn-sm btn-success alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
+				Cart',	'woocommerce' ); ?>" /> <input type="submit" class="checkout-button btn btn-sm btn-danger alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
 
 				<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 
@@ -139,14 +139,30 @@ do_action( 'woocommerce_before_cart' ); ?>
 		</form>
 </div>
 
-<div class="cart-collaterals">
-
+<div class="cart-collaterals row">
 	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
 
-	<?php woocommerce_cart_totals(); ?>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<?php woocommerce_shipping_calculator(); ?>
+	</div>
 
-	<?php woocommerce_shipping_calculator(); ?>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<?php woocommerce_cart_totals(); ?>
+	</div>
 
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<?php if ( WC()->cart->get_cart_tax() ) : ?>
+			<p><small><?php
+
+				$estimated_text = WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping()
+					? sprintf( ' ' . __( ' (taxes estimated for %s)', 'woocommerce' ), WC()->countries->estimated_for_prefix() . __( WC()->countries->countries[ WC()->countries->get_base_country() ], 'woocommerce' ) )
+					: '';
+
+				printf( __( 'Note: Shipping and taxes are estimated%s and will be updated during checkout based on your billing and shipping information.', 'woocommerce' ), $estimated_text );
+
+			?></small></p>
+		<?php endif; ?>
+	</div>
 </div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>

@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php _e( 'Cart Totals', 'woocommerce' ); ?></h2>
+	<h4 class="title-total-panier"><?php _e( 'Cart Totals', 'woocommerce' ); ?></h4>
 
-	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<table cellspacing="0" class="table table-bordered">
 
 			<tr class="cart-subtotal">
@@ -82,18 +82,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 		</table>
 	</div>
-
-	<?php if ( WC()->cart->get_cart_tax() ) : ?>
-		<p><small><?php
-
-			$estimated_text = WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping()
-				? sprintf( ' ' . __( ' (taxes estimated for %s)', 'woocommerce' ), WC()->countries->estimated_for_prefix() . __( WC()->countries->countries[ WC()->countries->get_base_country() ], 'woocommerce' ) )
-				: '';
-
-			printf( __( 'Note: Shipping and taxes are estimated%s and will be updated during checkout based on your billing and shipping information.', 'woocommerce' ), $estimated_text );
-
-		?></small></p>
-	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
 
