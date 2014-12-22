@@ -9,7 +9,6 @@
  */
 
 
-
 // Désactive la barre d'administration de wordpress.
 // todo - Il est possible de la placer mais elle n'est pas nécessaire.
 show_admin_bar(false);
@@ -299,6 +298,11 @@ function kub_register_script() {
             wp_enqueue_script( 'prettyPhoto-init');
         }
 
+        wp_dequeue_script('woocommerce');
+        wp_deregister_script( 'woocommerce' );
+        wp_register_script( 'woocommerce', get_template_directory_uri(). '/woocommerce/js/frontend/woocommerce.js', array( 'jquery', 'jquery-blockui' ), WC_VERSION, true );
+        wp_enqueue_script( 'woocommerce');
+
         wp_deregister_script( 'flat-ui-pro' );
         wp_register_script('flat-ui-pro', get_template_directory_uri().'/assets/vendor/flat-ui-pro/js/flat-ui-pro.min.js',array('jquery'), '1.3.1', true );
         wp_enqueue_script('flat-ui-pro' );
@@ -487,3 +491,28 @@ function kub_remove_tinymce_buttons($buttons)
 }
 add_filter('mce_buttons','kub_remove_tinymce_buttons');
 
+
+function kub_remove_product_tabs($tabs) {
+    global $name;
+
+    $pages = array('envedette');
+
+    if(in_array($name,$pages)) {
+
+        $remove = array('reviews');
+
+        foreach($remove as $tab) {
+
+            if ( array_key_exists ($tab , $tabs )) {
+
+                unset($tabs[$tab]);
+
+            }
+        }
+
+    }
+
+    return $tabs;
+}
+
+add_filter('woocommerce_product_tabs','kub_remove_product_tabs');

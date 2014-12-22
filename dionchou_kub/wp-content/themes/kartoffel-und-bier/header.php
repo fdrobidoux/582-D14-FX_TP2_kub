@@ -13,7 +13,7 @@
 	<title>Kartoffel Und Bier</title>
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 	<header>
 		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top navbar-lg" role="navigation">
 			<div class="container">

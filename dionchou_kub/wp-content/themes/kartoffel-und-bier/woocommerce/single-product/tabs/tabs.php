@@ -19,23 +19,30 @@ $tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 if ( ! empty( $tabs ) ) : ?>
 
-	<div class="woocommerce-tabs">
-		<ul class="tabs">
+	<div class=" col-lg-12">
+		<div class="tabbable">
+			<ul class="nav nav-tabs nav-append-content">
+				<?php $active = ' class="active"'; ?>
+				<?php foreach ( $tabs as $key => $tab ) : ?>
+
+					<li <?=$active?>>
+						<a href="#tab-<?php echo $key.'-p'.get_the_ID(); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
+					</li>
+
+				<?php $active = '' ?>
+				<?php endforeach; ?>
+			</ul>
+			<div class="tab-content">
+			<?php $active = ' active' ?>
 			<?php foreach ( $tabs as $key => $tab ) : ?>
 
-				<li class="<?php echo $key ?>_tab">
-					<a href="#tab-<?php echo $key ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
-				</li>
-
+				<div class="tab-pane<?=$active?>" id="tab-<?php echo $key.'-p'.get_the_ID(); ?>">
+					<?php call_user_func( $tab['callback'], $key, $tab ) ?>
+				</div>
+			<?php $active = '' ?>
 			<?php endforeach; ?>
-		</ul>
-		<?php foreach ( $tabs as $key => $tab ) : ?>
-
-			<div class="panel entry-content" id="tab-<?php echo $key ?>">
-				<?php call_user_func( $tab['callback'], $key, $tab ) ?>
 			</div>
-
-		<?php endforeach; ?>
+		</div>
 	</div>
 
 <?php endif; ?>

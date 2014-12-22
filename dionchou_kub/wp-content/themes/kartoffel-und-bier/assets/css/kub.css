@@ -11,7 +11,7 @@ body {
     display: block; }
 
 #Main {
-  padding: 60px 0; }
+  padding-top: 60px; }
 
 .bottom-menu-inverse a {
   color: #7795b4; }
@@ -252,5 +252,26 @@ h2.visible-xs {
   text-align: left;
   line-height: 36px;
   padding-top: 76px; }
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+.input-group-btn .btn-primary {
+  background-color: #1abc9c; }
+
+.page-template-envedette .onsale {
+  position: absolute;
+  z-index: 500; }
+.page-template-envedette .product {
+  padding: 15px;
+  border: 2px solid #34495e;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #edeff1; }
+.page-template-envedette .nav-tabs > li.active > a {
+  background-color: #fff; }
+.page-template-envedette .tab-content {
+  background-color: #fff; }
 
 /*# sourceMappingURL=kub.css.map */

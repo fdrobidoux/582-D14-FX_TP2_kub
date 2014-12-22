@@ -12,7 +12,7 @@ body
     display: block
 
 #Main
-  padding: 60px 0
+  padding-top: 60px
 
 .bottom-menu-inverse a
   color: #7795b4
@@ -226,13 +226,6 @@ p
 .select-danger
   +couleur-select($color-danger)
 
-//@media (max-width: 335px)
-//  .navbar-brand
-//    position: absolute
-//    font-size: 20px
-//
-
-
 /* ######### Panier ######### */
 .cart_item > [class^="product"]
   vertical-align: middle
@@ -254,9 +247,26 @@ h2.visible-xs
   padding-top: 76px
 
 
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+.input-group-btn .btn-primary
+  background-color: $color-primary
 
 
-
-
-
+.page-template-envedette
+  .onsale
+    position: absolute
+    z-index: 500
+  .product
+    padding: 15px
+    border: 2px solid $color-inverse
+    border-radius: 10px
+    margin-bottom: 30px
+    background-color: $color-dialog-default
+  .nav-tabs>li.active>a
+    background-color: #fff
+  .tab-content
+    background-color: #fff
 
