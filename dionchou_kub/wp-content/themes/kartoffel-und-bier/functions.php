@@ -425,7 +425,7 @@ add_shortcode( 'wp_caption', 'kub_fix_figure_figcaption_shortcode' );
 
 function kub_price_html($prix, $produit)
 {
-    $retour = '<span class="label label-info">'.$prix.'</span>';
+    $retour = '<span class="btn btn-inverse btn-sm price">'.$prix.'</span>';
 
     return $retour;
 }
@@ -434,7 +434,12 @@ function kub_price_html($prix, $produit)
 
 function kub_sale_price_html($prix, $produit)
 {
-    return $prix;
+    $retour = str_replace("<del>", '<span class="btn btn-default btn-sm price"><del>', $prix);
+    $retour = str_replace("</del>", '</del></span>', $retour);
+    $retour = str_replace("<ins>", '<span class="btn btn-info btn-sm price-sale">', $retour);
+    $retour = str_replace("</ins>", '</span>', $retour);
+
+    return ''.$retour.'</span>';
 }
 
 /* --- */
@@ -443,7 +448,7 @@ function kub_sale_price_html($prix, $produit)
 
 function kub_empty_price_html($prix, $produit)
 {
-    return $prix;
+    return '<span class="btn btn-warning btn-sm disabled price-empty">N/A</span>';
 }
 
 /* --- */
@@ -452,21 +457,21 @@ function kub_empty_price_html($prix, $produit)
 
 function kub_free_sale_price_html($prix, $produit)
 {
-    return $prix;
+    return '<span class="btn btn-primary price">'.$prix.'</span>';
 }
 
 /* OU */
 
 function kub_free_price_html($prix, $produit)
 {
-    return $prix;
+    return '<span class="">'.$prix.'</span>';
 }
 
 /* À LA TOUTE FIN */
 
 function kub_get_price_html($prix, $produit)
 {
-    return $prix;
+    return ''.$prix.'';
 }
 
 add_filter( 'woocommerce_price_html', 'kub_price_html', 100, 2 );

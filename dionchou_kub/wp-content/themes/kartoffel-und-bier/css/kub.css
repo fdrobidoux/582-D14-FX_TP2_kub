@@ -197,6 +197,12 @@ p {
 .products .well > .btn-group {
   height: 41px; }
 
+.price del {
+  color: #333; }
+
+.price-empty {
+  color: #333 !important; }
+
 /* Breadcrumbs */
 .woocommerce-breadcrumb {
   padding: 10px 20px;
