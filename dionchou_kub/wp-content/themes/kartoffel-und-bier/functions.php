@@ -415,4 +415,63 @@ function kub_fix_figure_figcaption_shortcode($attr, $content = null) {
 add_shortcode( 'caption', 'kub_fix_figure_figcaption_shortcode' );
 add_shortcode( 'wp_caption', 'kub_fix_figure_figcaption_shortcode' );
 
+//===========================================================================
+// PRICES
+//===========================================================================
 
+function kub_price_html($prix, $produit)
+{
+    $retour = '<span class="label label-info">'.$prix.'</span>';
+
+    return $retour;
+}
+
+/* OU */
+
+function kub_sale_price_html($prix, $produit)
+{
+    return $prix;
+}
+
+/* --- */
+
+function kub_empty_price_html($prix, $produit)
+{
+    return $prix;
+}
+
+/* OU */
+
+function kub_free_sale_price_html($prix, $produit)
+{
+    return $prix;
+}
+
+/* OU */
+
+function kub_free_price_html($prix, $produit)
+{
+    return $prix;
+}
+
+/* --- */
+
+function kub_get_price_suffix($prix, $produit)
+{
+    return $prix;
+}
+
+/* À LA TOUTE FIN */
+
+function kub_get_price_html($prix, $produit)
+{
+    return $prix;
+}
+
+add_filter( 'woocommerce_price_html', 'kub_price_html', 100, 2 );
+add_filter( 'woocommerce_sale_price_html', 'kub_sale_price_html', 100, 2 );
+add_filter( 'woocommerce_empty_price_html', 'kub_empty_price_html', 100, 2 );
+add_filter( 'woocommerce_free_sale_price_html', 'kub_free_sale_price_html', 100, 2);
+add_filter( 'woocommerce_free_price_html', 'kub_free_price_html', 100, 2);
+add_filter( 'woocommerce_get_price_suffix', 'kub_get_price_suffix', 100, 2);
+add_filter( 'woocommerce_get_price_html', 'kub_get_price_html', 100, 2);
