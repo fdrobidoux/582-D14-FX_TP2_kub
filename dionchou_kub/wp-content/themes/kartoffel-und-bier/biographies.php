@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Fournisseurs
+Template Name: Biographies
 */
 
 /**
@@ -19,15 +19,15 @@ get_header();
 		<div class="container">
 			<?php
 			$args = array(
-				'post_type' => 'fournisseurs',
+				'post_type' => 'biographies',
 				);
-			$fournisseurs = new WP_Query( $args );
+			$biographies = new WP_Query( $args );
 
-			if($fournisseurs->have_posts()) {
+			if($biographies->have_posts()) {
 
-				while ($fournisseurs->have_posts()) {
+				while ($biographies->have_posts()) {
 
-					$fournisseurs->the_post();
+					$biographies->the_post();
 
 					?>
 					<div class="row">

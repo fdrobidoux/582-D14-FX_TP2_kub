@@ -261,6 +261,112 @@ function kub_register_fournisseurs_post_type() {
 add_action('init', 'kub_register_fournisseurs_post_type', 0);
 
 
+/**
+ * Permet des entrées personnalisées dans la page  des biographies.  Le gestionnaire du commerce pourra donc procéder a de
+ * nouvelles entrées, ou éditer des entrées existantes, sans risquer de briser la page.
+ *
+ * wordpress hook -> init
+ *
+ * @param void
+ * @return void
+ */
+function kub_register_bio_post_type() {
+
+    $labels = array(
+        'name'                => 'Biographies',
+        'singular_name'       => 'Biographie',
+        'menu_name'           => 'Biographies',
+        'parent_item_colon'   => 'Entrée parente:',
+        'all_items'           => 'Toutes les entrées',
+        'view_item'           => 'Voir l\'entrée',
+        'add_new_item'        => 'Ajouter une nouvelle entrée',
+        'add_new'             => 'Ajouter',
+        'edit_item'           => 'Éditer l\'entrée',
+        'update_item'         => 'Mettre à jour l\'entrée',
+        'search_items'        => 'Rechercher une entrée',
+        'not_found'           => 'Entrée introuvable',
+        'not_found_in_trash'  => 'Entrée introuvable dans la corbeille',
+    );
+    $args = array(
+        'label'               => 'biographies',
+        'description'         => 'Permet une entré personnalisée dans la page des biographies',
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => false,
+        'show_in_admin_bar'   => false,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-id',
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+    );
+    register_post_type( 'biographies', $args );
+
+}
+
+// Hook sur l'action 'init'
+add_action('init', 'kub_register_bio_post_type', 0);
+
+
+/**
+ * Permet des entrées personnalisées dans la page  des biographies.  Le gestionnaire du commerce pourra donc procéder a de
+ * nouvelles entrées, ou éditer des entrées existantes, sans risquer de briser la page.
+ *
+ * wordpress hook -> init
+ *
+ * @param void
+ * @return void
+ */
+function kub_register_histo_post_type() {
+
+    $labels = array(
+        'name'                => 'Historiques',
+        'singular_name'       => 'Historique',
+        'menu_name'           => 'Historique',
+        'parent_item_colon'   => 'Entrée parente:',
+        'all_items'           => 'Toutes les entrées',
+        'view_item'           => 'Voir l\'entrée',
+        'add_new_item'        => 'Ajouter une nouvelle entrée',
+        'add_new'             => 'Ajouter',
+        'edit_item'           => 'Éditer l\'entrée',
+        'update_item'         => 'Mettre à jour l\'entrée',
+        'search_items'        => 'Rechercher une entrée',
+        'not_found'           => 'Entrée introuvable',
+        'not_found_in_trash'  => 'Entrée introuvable dans la corbeille',
+    );
+    $args = array(
+        'label'               => 'historiques',
+        'description'         => 'Permet une entré personnalisée dans la page des biographies',
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => false,
+        'show_in_admin_bar'   => false,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-format-status',
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+    );
+    register_post_type( 'historiques', $args );
+
+}
+
+// Hook sur l'action 'init'
+add_action('init', 'kub_register_histo_post_type', 0);
+
+
 //======================================================================================================================
 // "DEQUEUE, REGISTER & ENQUEUE" DES STYLES UTILISÉS PAR NOTRE THÈME
 //======================================================================================================================
@@ -530,7 +636,7 @@ function kub_remove_tinymce_buttons($buttons)
     global $current_screen;
 
     // Liste des vues sur lesquelles appliquer ce filtre
-    $screens = array('accueil','fournisseurs');
+    $screens = array('accueil','fournisseurs', 'biographies','historiques');
 
     if ( in_array($current_screen->post_type, $screens) ) {
 
