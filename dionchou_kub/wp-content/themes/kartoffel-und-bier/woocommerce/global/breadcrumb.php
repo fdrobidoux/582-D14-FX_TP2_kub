@@ -27,6 +27,7 @@ if ( $shop_page_id && $shop_page && strstr( $permalinks['product_base'], '/' . $
 if ( ( ! is_front_page() && ! ( is_post_type_archive() && get_option( 'page_on_front' ) == wc_get_page_id( 'shop' ) ) ) || is_paged() ) {
 
 	echo $wrap_before;
+	echo '<div class="container">';
 
 	if ( ! empty( $home ) ) {
 		echo $before . '<a class="home" href="' . apply_filters( 'woocommerce_breadcrumb_home_url', home_url() ) . '">' . $home . '</a>' . $after . $delimiter;
@@ -216,6 +217,7 @@ if ( ( ! is_front_page() && ! ( is_post_type_archive() && get_option( 'page_on_f
 		echo ' (' . __( 'Page', 'woocommerce' ) . ' ' . get_query_var( 'paged' ) . ')';
 	}
 
+	echo '</div>';
 	echo $wrap_after;
 
 }

@@ -9,92 +9,95 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $product, $post;
+global $woocommerce, $product, $post;
 ?>
+<div data-formulaire>
+	<script type="text/javascript">
+		var product_variations_<?php echo $post->ID; ?> = <?php echo json_encode( $available_variations ) ?>;
+	</script>
 
-<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-<form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
+	<form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
-		<table class="variations" cellspacing="0">
-			<tbody>
-				<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
-					<tr>
-						<td class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
-						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>">
-							<option value=""><?php echo __( 'Choose an option', 'woocommerce' ) ?>&hellip;</option>
+		<div class="variations" cellspacing="0">
+			<div class="row">
+			<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
+				<div class="col-xs-6">
+					<div class="label">
+						<label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label>
+					</div>
+					<div class="value">
+						<fieldset id="<?php echo sanitize_title($name); ?>" class="form-group">
 							<?php
-								if ( is_array( $options ) ) {
+							if ( is_array( $options ) ) {
 
-									if ( isset( $_REQUEST[ 'attribute_' . sanitize_title( $name ) ] ) ) {
-										$selected_value = $_REQUEST[ 'attribute_' . sanitize_title( $name ) ];
-									} elseif ( isset( $selected_attributes[ sanitize_title( $name ) ] ) ) {
-										$selected_value = $selected_attributes[ sanitize_title( $name ) ];
-									} else {
-										$selected_value = '';
+								if ( empty( $_POST ) )
+									$selected_value = ( isset( $selected_attributes[ sanitize_title( $name ) ] ) ) ? $selected_attributes[ sanitize_title( $name ) ] : '';
+								else
+									$selected_value = isset( $_POST[ 'attribute_' . sanitize_title( $name ) ] ) ? $_POST[ 'attribute_' . sanitize_title( $name ) ] : '';
+								//echo   $selected_value;
+								// Get terms if this is a taxonomy - ordered
+								$idSuffix = 1;
+								if ( taxonomy_exists( sanitize_title( $name ) ) ) {
+
+									$terms = get_terms( sanitize_title($name), array('menu_order' => 'ASC') );
+
+									foreach ( $terms as $term ) {
+										if ( ! in_array( $term->slug, $options ) ) {
+											continue;
+										}
+										echo '<label class="radio primary">';
+										echo '<input type="radio" class="custom-radio" data-toggle="radio" data-radiocheck-toggle="radio" value="' . strtolower($term->slug) . '" ' . checked( strtolower ($selected_value), strtolower ($term->slug), false ) . ' id="'. esc_attr( sanitize_title($name) ) .$idSuffix.'" name="attribute_'. sanitize_title($name).'"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>';
+										echo apply_filters( 'woocommerce_variation_option_name', $term->name );
+										echo '</label>';
+										$idSuffix++;
 									}
-
-									// Get terms if this is a taxonomy - ordered
-									if ( taxonomy_exists( sanitize_title( $name ) ) ) {
-
-										$orderby = wc_attribute_orderby( sanitize_title( $name ) );
-
-										switch ( $orderby ) {
-											case 'name' :
-												$args = array( 'orderby' => 'name', 'hide_empty' => false, 'menu_order' => false );
-											break;
-											case 'id' :
-												$args = array( 'orderby' => 'id', 'order' => 'ASC', 'menu_order' => false, 'hide_empty' => false );
-											break;
-											case 'menu_order' :
-												$args = array( 'menu_order' => 'ASC', 'hide_empty' => false );
-											break;
-										}
-
-										$terms = get_terms( sanitize_title( $name ), $args );
-
-										foreach ( $terms as $term ) {
-											if ( ! in_array( $term->slug, $options ) )
-												continue;
-
-											echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $selected_value ), sanitize_title( $term->slug ), false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
-										}
-									} else {
-
-										foreach ( $options as $option ) {
-											echo '<option value="' . esc_attr( sanitize_title( $option ) ) . '" ' . selected( sanitize_title( $selected_value ), sanitize_title( $option ), false ) . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option ) ) . '</option>';
-										}
-
+								} else {
+									foreach ( $options as $option ){
+										echo '<label class="radio primary">';
+										echo '<input type="radio" class="custom-radio" data-toggle="radio" data-radiocheck-toggle="radio" value="' .esc_attr( sanitize_title( $option ) ) . '" ' . checked( sanitize_title( $selected_value ), sanitize_title( $option ), false ) . ' id="'. esc_attr( sanitize_title($name) ) .$idSuffix.'" name="attribute_'. sanitize_title($name).'">';
+										echo apply_filters( 'woocommerce_variation_option_name', $option );
+										echo '</label>';
+										$idSuffix++;
 									}
 								}
+							}
 							?>
-						</select> <?php
-							if ( sizeof( $attributes ) == $loop )
-								echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
-						?></td>
-					</tr>
-		        <?php endforeach;?>
-			</tbody>
-		</table>
+						</fieldset>
+						<?php
+						if ( sizeof($attributes) == $loop ) {
+							//echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
+						}
+						?>
+					</div>
+				</div>
+			<?php endforeach;?>
+			</div>
+		</div><!--variations-->
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 		<div class="single_variation_wrap" style="display:none;">
 			<?php do_action( 'woocommerce_before_single_variation' ); ?>
-
 			<div class="single_variation"></div>
 
-			<div class="variations_button">
-				<?php woocommerce_quantity_input(); ?>
-				<button type="submit" class="single_add_to_cart_button button alt"><?php echo $product->single_add_to_cart_text(); ?></button>
+			<div class="variations_button clearfix">
+				<div class="form-group">
+					<div class="input-group">
+						<?php woocommerce_quantity_input(); ?>
+						<span class="input-group-btn">
+							<button type="submit" class=" single_add_to_cart_button button alt btn btn-primary btn-block">Ajouter</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
 			</div>
-
 			<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>" />
 			<input type="hidden" name="product_id" value="<?php echo esc_attr( $post->ID ); ?>" />
 			<input type="hidden" name="variation_id" value="" />
 
 			<?php do_action( 'woocommerce_after_single_variation' ); ?>
-		</div>
+		</div><!--single_variation_wrap-->
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 
@@ -104,6 +107,7 @@ global $product, $post;
 
 	<?php endif; ?>
 
-</form>
+	</form>
+</div><!--data-formulaire-->
 
 <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
