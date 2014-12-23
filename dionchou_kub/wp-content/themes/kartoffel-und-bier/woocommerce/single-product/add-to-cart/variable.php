@@ -83,13 +83,13 @@ global $woocommerce, $product, $post;
 			<div class="single_variation"></div>
 
 			<div class="variations_button clearfix">
-				<div class="form-group">
-					<div class="input-group">
+				<div class="row">
+					<div class="col-xs-6 col-md-4">
 						<?php woocommerce_quantity_input(); ?>
-						<span class="input-group-btn">
-							<button type="submit" class=" single_add_to_cart_button button alt btn btn-primary btn-block">Ajouter</button>
-						</span>
-					</div><!-- /input-group -->
+					</div>
+					<div class="col-xs-6 col-md-4">
+						<button type="submit" class=" single_add_to_cart_button button alt btn btn-primary btn-block">Ajouter</button>
+					</div>
 				</div>
 			</div>
 			<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>" />

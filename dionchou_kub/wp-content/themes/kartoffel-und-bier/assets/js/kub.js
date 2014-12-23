@@ -42,9 +42,8 @@ $(function(){
         }
     });
 
+
     $('.spinner').customspinner({
-        min: -99,
-        max: 99
     }).on('focus', function () {
         $(this).closest('.ui-spinner').addClass('focus');
     }).on('blur', function () {

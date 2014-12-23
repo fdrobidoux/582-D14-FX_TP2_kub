@@ -292,7 +292,7 @@ h2.visible-xs
   border: 2px solid $color-frames
   border-radius: 10px
   background-color: $color-dialog-default
-  a
+  .thumbnail a
     display: block
     width: 100%
   h1, h2
@@ -356,13 +356,15 @@ h2.visible-xs
         line-height: 1.5
   .product_meta a
     display: inline
+  //.ui-spinner-button
+  //  width: inherit!important
   .input-group-btn .btn-primary
     background-color: $color-frames
     border: 2px solid $color-frames
     color: #fff
-  .form-control
-    color: $text-color
-    border: 2px solid $color-frames
+  //.form-control
+  //  color: $text-color
+  //  border: 2px solid $color-frames
 .shipping-calculator-form
   background-color: #efd
   padding: 20px 0
@@ -511,6 +513,15 @@ body:not(.home) .product-content
 
 td.product-thumbnail
   text-align: center
+
+.ui-spinner-input
+  width: 100%
+
+.woocommerce-cart .ui-spinner-input
+  @media screen and (min-width: $break-medium)
+    width: 85px
+
+
 
 
 
