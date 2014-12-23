@@ -3,3 +3,10 @@
  * Description: Un site whatever
  * Author: Michel Chouinard & Félix Dion Robidoux
  */
+
+.star-rating span {
+    font-size:1em;
+    font-style: bold;
+    font-family: "star";
+    color: #006c00;
+}

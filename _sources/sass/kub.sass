@@ -1,5 +1,122 @@
 @import variables
 
+@font-face
+  font-family: 'star'
+  src: url('../fonts/star.eot')
+  src: url('../fonts/star.eot?#iefix') format("embedded-opentype"), url('../fonts/star.woff') format("woff"), url('../fonts/star.ttf') format("truetype"), url('../fonts/star.svg#star') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+/* Primary colour for buttons (alt)
+/* Text on primary colour bg
+/* Secondary buttons
+/* Text on secondary colour bg
+/* Prices, In stock labels, sales flash
+/* Text on highlight colour bg
+/* Content BG - Tabs (active state)
+/* small, breadcrumbs etc
+
+
+.star-rating
+  float: right
+  overflow: hidden
+  position: relative
+  height: 1em
+  line-height: 1em
+  font-size: 1em
+  width: 5.4em
+  font-family: 'star'
+  &:before
+    content: "\73\73\73\73\73"
+    color: #e0dadf
+    float: left
+    top: 0
+    left: 0
+    position: absolute
+  span
+    overflow: hidden
+    float: left
+    top: 0
+    left: 0
+    position: absolute
+    padding-top: 1.5em
+    &:before
+      content: "\53\53\53\53\53"
+      top: 0
+      position: absolute
+      left: 0
+
+.woocommerce-product-rating
+  line-height: 2em
+  display: block
+  .star-rating
+    margin: .5em 4px 0 0
+    float: left
+
+.products .star-rating
+  display: block
+  margin: 0 0 .5em
+  float: none
+
+.hreview-aggregate .star-rating
+  margin: 10px 0 0 0
+
+
+#reviews #comments ul.children .star-rating
+  display: none
+
+p.stars
+  position: relative
+  font-size: 1em
+  a
+    display: inline-block
+    font-weight: 700
+    margin-right: 1em
+    text-indent: -9999px
+    position: relative
+    &:last-child
+      border-right: 0
+    &.star-1, &.star-2, &.star-3, &.star-4, &.star-5
+      border-right: 1px solid #ccc
+    &.star-1:after, &.star-2:after, &.star-3:after, &.star-4:after, &.star-5:after
+      font-family: "WooCommerce"
+      text-indent: 0
+      position: absolute
+      top: 0
+      left: 0
+    &.star-1
+      width: 2em
+      &:after
+        content: "\e021"
+      &:hover:after, &.active:after
+        content: "\e020"
+    &.star-2
+      width: 3em
+      &:after
+        content: "\e021\e021"
+      &:hover:after, &.active:after
+        content: "\e020\e020"
+    &.star-3
+      width: 4em
+      &:after
+        content: "\e021\e021\e021"
+      &:hover:after, &.active:after
+        content: "\e020\e020\e020"
+    &.star-4
+      width: 5em
+      &:after
+        content: "\e021\e021\e021\e021"
+      &:hover:after, &.active:after
+        content: "\e020\e020\e020\e020"
+    &.star-5
+      width: 6em
+      border: 0
+      &:after
+        content: "\e021\e021\e021\e021\e021"
+      &:hover:after, &.active:after
+        content: "\e020\e020\e020\e020\e020"
+
 body
   padding-top: 76px
 
@@ -12,7 +129,7 @@ body
     display: block
 
 #Main
-  padding: 60px 0
+  padding-top: 60px
 
 .bottom-menu-inverse a
   color: #7795b4
@@ -37,142 +154,143 @@ p
 
 /* Rend le Carousel adapté
 
-#myCarousel
-  border: 2px solid $color-inverse
-  border-radius: 10px
-  overflow: hidden
-  background-color: $color-pannel-info
-  padding: 10px
-  .infos
-    color: #34495e
-    padding: 0
-    @media screen and (min-width: $break-medium)
-      padding: 0 15px
-  h2
-    font-size: 25px
-    margin: 0
-    @media screen and (min-width: $break-small)
-      font-size: 40px
-    @media screen and (min-width: $break-large)
-      font-size: 53px
-      margin: 10px 0
-  .image
-    padding: 15px 0
-    text-align: center
-    border-radius: 8px
-    background-color: #fff
-    img
-      height: 320px
-      max-width: 100%
-      border-radius: 4px
-      @media screen and (min-width: $break-small)
-        height: 500px
-      @media screen and (min-width: $break-medium)
-        height: 450px
-      @media screen and (min-width: $break-large)
-        height: 528px
+//#myCarousel
+//  border: 2px solid $color-frames
+//  border-radius: 10px
+//  overflow: hidden
+//  background-color: $color-pannel-info
+//  padding: 10px
+//  .infos
+//    color: #34495e
+//    padding: 0
+//    @media screen and (min-width: $break-medium)
+//      padding: 0 15px
+//  h2
+//    font-size: 25px
+//    margin: 0
+//    @media screen and (min-width: $break-small)
+//      font-size: 40px
+//    @media screen and (min-width: $break-large)
+//      font-size: 53px
+//      margin: 10px 0
+//  .image
+//    padding: 15px 0
+//    text-align: center
+//    border-radius: 8px
+//    background-color: #fff
+//    img
+//      height: 320px
+//      max-width: 100%
+//      border-radius: 4px
+//      @media screen and (min-width: $break-small)
+//        height: 500px
+//      @media screen and (min-width: $break-medium)
+//        height: 450px
+//      @media screen and (min-width: $break-large)
+//        height: 528px
 
 
-
-#myCarousel > div.saleflash-container
-  position: absolute
-  left: 0
-  top: 0
-  width: 100px
-  height: 100px
-  @media screen and (min-width: $break-small)
-    width: 200px
-    height: 200px
-  @media screen and (min-width: $break-medium)
-    width: 150px
-    height: 150px
-  @media screen and (min-width: $break-large)
-    width: 200px
-    height: 200px
-  background-color: $color-primary
-  border-top-left-radius: 8px
-  border-top-right-radius: 10%
-  border-bottom-left-radius: 10%
-  border-bottom-right-radius: 100%
-  overflow: hidden
-
-
-#myCarousel > div.saleflash-container > div.onsale
-  font-family: sans-serif
+.onsale
   display: block
   position: absolute
+  top: -10px
+  left: -10px
+  width: 110px
+  height: 110px
   color: #fff
-  font-size: 30px
-  line-height: 0
+  background-color: $color-primary
+  font-size: 25px
+  font-weight: bold
+  line-height: 110px
+  text-align: center
+  border-radius: 50%
   -webkit-transform: rotate(-45deg)
   transform: rotate(-45deg)
   -webkit-backface-visibility: hidden
   backface-visibility: hidden
-  top: 50%
-  left: 0
+  z-index: 500
   @media screen and (min-width: $break-small)
-    font-size: 60px
-  @media screen and (min-width: $break-medium)
-    font-size: 45px
-  @media screen and (min-width: $break-large)
-    font-size: 60px
+    top: -15px
+    left: -15px
+    width: 130px
+    height: 130px
+    font-size: 30px
+    line-height: 130px
+
+.post-type-archive-product .onsale
+  top: -15px
+  left: -15px
+  width: 90px
+  height: 90px
+  font-size: 20px
+  line-height: 90px
+
+.home .onsale
+  top: 5px
+  left: 5px
+  width: 90px
+  height: 90px
+  font-size: 20px
+  line-height: 90px
 
 .carousel-indicators li.active
   background-color: $color-primary
 
-#myCarousel .product-prices
-  position: relative
-  padding: 20px 0
-  @media screen and (min-width: $break-medium)
-    padding: 50px 0
+//#myCarousel .product-prices
+//  position: relative
+//  padding: 20px 0
+//  @media screen and (min-width: $break-medium)
+//    padding: 50px 0
+//
+//#myCarousel .product-prices > ins
+//  display: block
+//  float: left
+//  width: 76%
+//  background-color: $color-primary
+//  color: #fff
+//  border-radius: 10px
+//  text-align: center
+//  font-size: 40px
+//  text-decoration: none
+//  line-height: 1.6
+//  margin: -80px 12% 0
+//  @media screen and (min-width: $break-small)
+//    font-size: 60px
+//    margin: -125px 12% 0
+//  @media screen and (min-width: $break-medium)
+//    font-size: 70px
+//    margin: -140px 12% 0
+//  @media screen and (min-width: $break-large)
+//    width: 80%
+//    font-size: 60px
+//    margin: -180px 12% 0
+//
+//#myCarousel .product-prices > del
+//  display: block
+//  float: right
+//  background-color: #000000
+//  color: #fff
+//  width: 25%
+//  border-radius: 50%
+//  text-align: center
+//  text-decoration: none
+//  margin-right: 12%
+//  line-height: 1.6
+//  font-size: 15px
+//  margin-top: 65px
+//  @media screen and (min-width: $break-small)
+//    font-size: 25px
+//    margin-top: 95px
+//  @media screen and (min-width: $break-medium)
+//    font-size: 25px
+//    margin-top: 100px
+//  @media screen and (min-width: $break-large)
+//    font-size: 30px
+//    margin-top: 140px
+//    width: 33%
+//    margin-right: 10%
 
-#myCarousel .product-prices > ins
-  display: block
-  float: left
-  width: 76%
-  background-color: $color-primary
-  color: #fff
-  border-radius: 50%
-  text-align: center
-  font-size: 40px
-  text-decoration: none
-  line-height: 1.6
-  margin: -80px 12% 0
-  @media screen and (min-width: $break-small)
-    font-size: 60px
-    margin: -125px 12% 0
-  @media screen and (min-width: $break-medium)
-    font-size: 70px
-    margin: -140px 12% 0
-  @media screen and (min-width: $break-large)
-    width: 80%
-    font-size: 90px
-    margin: -180px 12% 0
 
-#myCarousel .product-prices > del
-  display: block
-  float: right
-  background-color: #000000
-  color: #fff
-  width: 25%
-  border-radius: 50%
-  text-align: center
-  text-decoration: none
-  margin-right: 12%
-  line-height: 1.6
-  font-size: 15px
-  margin-top: 65px
-  @media screen and (min-width: $break-small)
-    font-size: 25px
-    margin-top: 95px
-  @media screen and (min-width: $break-medium)
-    font-size: 25px
-    margin-top: 100px
-  @media screen and (min-width: $break-large)
-    font-size: 30px
-    margin-top: 140px
-    width: 33%
-    margin-right: 10%
 
 
 
@@ -188,7 +306,6 @@ p
 .products
   .well > .btn-group
     height: 41px
-    //.added-to-cart
 
 .price del
   color: #333
@@ -199,9 +316,14 @@ p
 
 /* Breadcrumbs */
 .woocommerce-breadcrumb
-  padding: 10px 20px
+  width: 100%
+  position: fixed
+  top: 76px
+  right: 0
   background-color: #eee
-  border-radius: 8px
+  padding: 5px 0
+  z-index: 1029
+
 
 /* ########## Select ######### */
 =couleur-select($color)
@@ -226,15 +348,6 @@ p
 /* Danger
 .select-danger
   +couleur-select($color-danger)
-
-//@media (max-width: 335px)
-//  .navbar-brand
-//    position: absolute
-//    font-size: 20px
-//
-
-
-
 
 /* ######### Panier ######### */
 .cart_item > [class^="product"]
@@ -272,6 +385,10 @@ h2.visible-xs
     &:nth-child(2n+1) th
       background-color: #dfd
 
+.col-no-padding
+  [class*="col-"]
+    padding-left: 0 !important
+    padding-right: 0 !important
 .shipping_calculator
   a
     margin-bottom: 0
@@ -280,6 +397,79 @@ h2.visible-xs
     -webkit-border-bottom-right-radius: 0
     border-bottom-right-radius: 0
 
+.product-content
+  position: relative
+  padding: 15px
+  border: 2px solid $color-frames
+  border-radius: 10px
+  background-color: $color-dialog-default
+  a
+    display: block
+    width: 100%
+  h1, h2
+    font-size: 30px
+    color: $text-color
+    margin: 5px 0
+    @media screen and (min-width: $break-small)
+      font-size: 40px
+    @media screen and (min-width: $break-medium)
+      font-size: 53px
+  h3
+    font-size: 20px
+    color: $text-color
+    margin: 5px 0
+  p
+    font-size: 15px
+    color: $text-color
+    @media screen and (min-width: $break-small)
+      font-size: 18px
+  .thumbnails
+    margin: 5px 10px 0
+    [class*="col-"]
+      padding: 0 5px 10px
+    .attachment-shop_thumbnail
+      min-height: 67px
+      max-height: 67px
+      max-width: 100%
+      @media screen and (min-width: $break-small)
+        min-height: 91px
+        max-height: 91px
+      @media screen and (min-width: $break-medium)
+        min-height: 90px
+        max-height: 90px
+      @media screen and (min-width: $break-large)
+        min-height: 69px
+        max-height: 69px
+  .attachment-shop_single
+    max-height: 244px
+    @media screen and (min-width: $break-small)
+      max-height: 316px
+    @media screen and (min-width: $break-medium)
+      max-height: 426px
+    @media screen and (min-width: $break-large)
+      max-height: 526px
+  .variations
+    .label
+      padding: 0
+      margin: 0
+      font-size: 18px
+      color: $text-color
+      font-weight: bold
+      line-height: 1.5
+      label
+        font-size: 18px
+        color: $text-color
+        font-weight: bold
+        line-height: 1.5
+  .product_meta a
+    display: inline
+  .input-group-btn .btn-primary
+    background-color: $color-frames
+    border: 2px solid $color-frames
+    color: #fff
+  .form-control
+    color: $text-color
+    border: 2px solid $color-frames
 .shipping-calculator-form
   background-color: #efd
   padding: 20px 0
@@ -293,6 +483,131 @@ h2.visible-xs
       margin-top: 0
   #calc_shipping_postcode 
     width: 100%
+
+
+body:not(.home) .product-content
+  margin-bottom: 30px
+
+
+.home .attachment-shop_single
+  min-height: 244px
+  max-height: 244px
+  @media screen and (min-width: $break-small)
+    min-height: 316px
+    max-height: 316px
+  @media screen and (min-width: $break-medium)
+    min-height: 426px
+    max-height: 426px
+  @media screen and (min-width: $break-large)
+    min-height: 526px
+    max-height: 526px
+
+
+.attachment-shop_catalog
+  min-height: 244px
+  max-height: 244px
+
+.dummy-rating
+  font-size: 18px
+  line-height: 18px
+  margin: 0 0 9px 0
+
+.tabbable
+  margin-top: 30px
+  .tab-content
+    background-color: #fff
+    border-color: $color-frames
+    border-radius: 6px
+    h2
+      font-size: 30px
+      margin-top: 0
+  .nav-tabs>li>a
+    border-color: $color-frames
+    @media screen and (min-width: $break-small)
+      border-color: $color-frames
+      border-width: 2px
+  .nav-tabs>li.active>a
+    border-color: $color-frames
+    background-color: $color-frames
+    @media screen and (min-width: $break-small)
+      border-color: $color-frames
+      background-color: #fff
+      border-bottom-color: #fff
+      border-bottom-width: 0
+      margin-bottom: -2px
+  .nav-tabs.nav-append-content>li.active:first-child:before
+    border-left-color: $color-frames
+
+
+
+.post-type-archive-product .product-content
+  min-height: 490px
+
+
+  //.zoom
+  //  display: block
+  //  width: 100%
+  //  text-align: center
+  //  background-color: #fff
+  //  border-radius: 6px
+  //  border: 2px solid $color-frames
+
+
+
+.carousel-indicators
+  top: 6px
+  right: 9px
+
+.price > span.amount
+  display: block
+  width: 100%
+  font-size: 15px
+  line-height: 1.5
+  border-radius: 4px
+  padding: 10px 0
+  margin: 10px 0 15px
+  text-align: center
+  background-color: $color-primary
+  text-decoration: none
+  color: #fff
+
+.price > ins, .price > del
+  display: inline-block
+  width: 49%
+  font-size: 15px
+  line-height: 1.5
+  border-radius: 4px
+  padding: 10px 0
+  margin: 10px 0 15px
+  text-align: center
+
+.price > ins
+  background-color: $color-primary
+  text-decoration: none
+  color: #fff
+
+.price > del
+  background-color: #565656
+  color: #fff
+
+.home .price ins, .home .price del
+  display: block
+  width: 100%
+  font-size: 30px
+  @media screen and (min-width: $break-small)
+    width: 80%
+  @media screen and (min-width: $break-medium)
+    font-size: 40px
+
+.home .product-content p
+  font-size: 13px
+  @media screen and (min-width: $break-medium)
+    font-size: 20px
+
+.carousel-control
+  top: 25%
+  @media screen and (min-width: $break-small)
+    top: 50%
 
 /* ########## SINGLE-PRODUCT ########## */
 .thumbnails a

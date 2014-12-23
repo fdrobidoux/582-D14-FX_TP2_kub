@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) )
 if ( ! comments_open() )
 	return;
 ?>
+<!--reviews-->
 <div id="reviews">
 	<div id="comments">
 		<h2><?php

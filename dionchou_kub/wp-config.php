@@ -88,5 +88,6 @@ if ( !defined('ABSPATH') )
 
 define( 'WP_MEMORY_LIMIT', '64M' );
 
+define( 'SCRIPT_DEBUG', true );
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');

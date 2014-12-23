@@ -9,7 +9,6 @@
  */
 
 
-
 // Désactive la barre d'administration de wordpress.
 // todo - Il est possible de la placer mais elle n'est pas nécessaire.
 show_admin_bar(false);
@@ -223,25 +222,36 @@ add_action('init', 'kub_register_home_post_type', 0);
  * @return void
  */
 function kub_register_styles() {
+    global $woocommerce;
 
     if (!is_admin()) {
 
         wp_deregister_style( 'bootstrap' );
-//        wp_register_style( 'bootstrap', get_template_directory_uri().'/css/vendor/bootstrap.min.css', array(), '3.3.1');
-        wp_register_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css', array(), '3.3.1');
+        wp_register_style( 'bootstrap', get_template_directory_uri().'/assets/vendor/bootstrap/css/bootstrap.min.css', array(), '3.3.1');
         wp_enqueue_style('bootstrap');
 
         wp_deregister_style( 'flat-ui-pro' );
-        wp_register_style('flat-ui-pro', get_template_directory_uri().'/css/vendor/flat-ui-pro.min.css',array('bootstrap'), '1.3.1' );
+        wp_register_style('flat-ui-pro', get_template_directory_uri().'/assets/vendor/flat-ui-pro/css/flat-ui-pro.min.css',array('bootstrap'), '1.3.1' );
         wp_enqueue_style('flat-ui-pro' );
 
         wp_deregister_style( 'kub' );
-        wp_register_style('kub', get_template_directory_uri().'/css/kub.css',array('bootstrap','flat-ui-pro'), null);
+        wp_register_style('kub', get_template_directory_uri().'/assets/css/kub.css',array('bootstrap','flat-ui-pro'), null);
         wp_enqueue_style('kub' );
 
         wp_deregister_style( 'kub-masonery' );
-        wp_register_style('kub-masonery', get_template_directory_uri().'/css/kub-masonery.css',array('bootstrap'), null);
+        wp_register_style('kub-masonery', get_template_directory_uri().'/assets/css/kub-masonery.css',array('bootstrap'), null);
         wp_enqueue_style('kub-masonery' );
+
+        $lightbox_en = get_option( 'woocommerce_enable_lightbox' ) == 'yes' ? true : false;
+
+        if ( $lightbox_en && !wp_style_is( 'woocommerce_prettyPhoto_css', 'registered' )) {
+            wp_register_style('woocommerce_prettyPhoto_css', $woocommerce->plugin_url() . '/assets/css/prettyPhoto.css',array(),null );
+            wp_enqueue_style( 'woocommerce_prettyPhoto_css');
+        }
+        elseif($lightbox_en && !wp_style_is( 'woocommerce_prettyPhoto_css', 'enqueued' )) {
+            wp_enqueue_style( 'woocommerce_prettyPhoto_css');
+        }
+
 
     }
 }
@@ -261,31 +271,77 @@ add_action('wp_enqueue_scripts', 'kub_register_styles');
  * @return void
  */
 function kub_register_script() {
+    global $woocommerce;
+
 
     if (!is_admin()) {
 
         wp_deregister_script('jquery');
-        wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js',array(), '1.11.1', true);
+        wp_register_script('jquery', get_template_directory_uri().'/assets/vendor/jquery/jquery-1.11.2.min.js',array(), '1.11.2', true);
         wp_enqueue_script('jquery');
 
+        $lightbox_en = get_option( 'woocommerce_enable_lightbox' ) == 'yes' ? true : false;
+
+        if ( $lightbox_en && !wp_script_is( 'prettyPhoto', 'registered' )) {
+            wp_register_script( 'prettyPhoto', $woocommerce->plugin_url() . '/assets/js/prettyPhoto/jquery.prettyPhoto.min.js', array( 'jquery' ), '3.1.5', true );
+            wp_enqueue_script('prettyPhoto');
+        }
+        elseif($lightbox_en && !wp_script_is( 'prettyPhoto', 'enqueued' )) {
+            wp_enqueue_script( 'prettyPhoto');
+        }
+
+        if ( $lightbox_en && !wp_script_is( 'prettyPhoto-init', 'registered' )) {
+            wp_register_script( 'prettyPhoto-init', $woocommerce->plugin_url() . '/assets/js/prettyPhoto/jquery.prettyPhoto.init.min.js', array( 'jquery','prettyPhoto' ), WC_VERSION, true );
+            wp_enqueue_script('prettyPhoto-init');
+        }
+        elseif($lightbox_en && !wp_script_is( 'prettyPhoto-init', 'enqueued' )) {
+            wp_enqueue_script( 'prettyPhoto-init');
+        }
+
+        wp_dequeue_script('wc-single-product');
+        wp_deregister_script( 'wc-single-product' );
+        wp_register_script( 'wc-single-product', get_template_directory_uri(). '/woocommerce/js/frontend/single-product.js', array( 'jquery' ), WC_VERSION, true );
+        wp_enqueue_script( 'wc-single-product');
+
+        wp_dequeue_script('woocommerce');
+        wp_deregister_script( 'woocommerce' );
+        wp_register_script( 'woocommerce', get_template_directory_uri(). '/woocommerce/js/frontend/woocommerce.js', array( 'jquery', 'jquery-blockui' ), WC_VERSION, true );
+        wp_enqueue_script( 'woocommerce');
+
         wp_deregister_script( 'flat-ui-pro' );
-        wp_register_script('flat-ui-pro', get_template_directory_uri().'/js/vendor/flat-ui-pro.min.js',array('jquery'), '1.3.1', true );
+        wp_register_script('flat-ui-pro', get_template_directory_uri().'/assets/vendor/flat-ui-pro/js/flat-ui-pro.min.js',array('jquery'), '1.3.1', true );
         wp_enqueue_script('flat-ui-pro' );
 
         wp_deregister_script( 'imagesloaded' );
-        wp_register_script('imagesloaded', get_template_directory_uri().'/js/vendor/imagesloaded.pkgd.min.js',array('jquery'), '3.1.8', true );
+        wp_register_script('imagesloaded', get_template_directory_uri().'/assets/vendor/pkgd/imagesloaded.pkgd.min.js',array('jquery'), '3.1.8', true );
         wp_enqueue_script('imagesloaded' );
 
         wp_deregister_script( 'masonery' );
-        wp_register_script('masonery', get_template_directory_uri().'/js/vendor/masonry.pkgd.min.js',array('jquery'), '3.2.2', true );
+        wp_register_script('masonery', get_template_directory_uri().'/assets/vendor/pkgd/masonry.pkgd.min.js',array('jquery'), '3.2.2', true );
         wp_enqueue_script('masonery' );
 
-        wp_register_script('kub', get_template_directory_uri().'/js/kub.js',array('jquery','flat-ui-pro'), null, true );
+        wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery','flat-ui-pro'), null, true );
+//        wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery'), null, true );
         wp_enqueue_script('kub' );
 
-        wp_register_script('kub-masonery', get_template_directory_uri().'/js/kub-masonery.js',array('jquery'), null, true );
+        wp_register_script('kub-masonery', get_template_directory_uri().'/assets/js/kub-masonery.js',array('jquery'), null, true );
         wp_enqueue_script('kub-masonery' );
 
+        // Include the file, if needed
+        if ( ! function_exists( 'wp_check_browser_version' ) ) {
+            include_once( ABSPATH . 'wp-admin/includes/dashboard.php' );
+        }
+
+        // IE version conditional enqueue
+        $response = wp_check_browser_version();
+
+        if ( 0 > version_compare( intval( $response['version'] ) , 9 ) ) {
+            wp_register_script( 'html5shiv', get_template_directory_uri().'/assets/vendor/html5shiv.js', array(), '3.7.2', false );
+            wp_enqueue_script('html5shiv' );
+            wp_register_script( 'respond-js', get_template_directory_uri().'/assets/vendor/respond.min.js', array(), '1.4.2', false );
+            wp_enqueue_script('respond-js' );
+
+        }
     }
 }
 
@@ -310,13 +366,6 @@ function kub_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'kub_excerpt_more' );
 add_filter( 'the_content_more_link', 'kub_excerpt_more' );
 
-
-//function remove_width_attribute( $html ) {
-//    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-//    return $html;
-//}
-//add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-//add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
 
 //======================================================================================================================
@@ -419,6 +468,72 @@ add_shortcode( 'wp_caption', 'kub_fix_figure_figcaption_shortcode' );
 // PRICES
 //===========================================================================
 
+/**
+ * Retire des boutons de la barre d'outils de l'éditeur
+ *
+ * @param $buttons
+ * @return mixed
+ */
+function kub_remove_tinymce_buttons($buttons)
+{
+    global $current_screen;
+
+    // Liste des vues sur lesquelles appliquer ce filtre
+    $screens = array('accueil');
+
+    if ( in_array($current_screen->post_type, $screens) ) {
+
+        // Liste des boutons a retirer
+        $remove = array('wp_more');
+
+        foreach($remove as $btns) {
+
+            if ( ( $key = array_search($btns,$buttons) ) !== false ) {
+
+                unset($buttons[$key]);
+
+            }
+        }
+    }
+
+    return $buttons;
+}
+add_filter('mce_buttons','kub_remove_tinymce_buttons');
+
+
+function kub_remove_product_tabs($tabs) {
+    global $name;
+
+    $pages = array('envedette');
+
+    if(in_array($name,$pages)) {
+
+        $remove = array('reviews');
+
+        foreach($remove as $tab) {
+
+            if ( array_key_exists ($tab , $tabs )) {
+
+                unset($tabs[$tab]);
+
+            }
+        }
+
+    }
+
+    return $tabs;
+}
+
+add_filter('woocommerce_product_tabs','kub_remove_product_tabs');
+
+
+
+function remove_width_attribute( $html ) {
+    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+    return $html;
+}
+add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 /* --- */
 /* $this->get_price() > 0 */
 /* --- */

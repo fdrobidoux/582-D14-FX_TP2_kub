@@ -15,82 +15,87 @@ get_header();
 		<div class="container">
 			<div id="masonery" class="row">
 				<div class="box-sizer col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-				<div class="box full">
-					<?php
-					$args = array(
-						'post_type' => 'product',
-						'meta_query' => array(
-							'relation' => 'OR',
-							array( // Simple products type
-								'key' => '_sale_price',
-								'value' => 0,
-								'compare' => '>',
-								'type' => 'numeric'
-							),
-							array( // Variable products type
-								'key' => '_min_variation_sale_price',
-								'value' => 0,
-								'compare' => '>',
-								'type' => 'numeric'
-							)
+				<?php
+				$args = array(
+					'post_type' => 'product',
+					'meta_query' => array(
+						'relation' => 'OR',
+						array( // Simple products type
+							'key' => '_sale_price',
+							'value' => 0,
+							'compare' => '>',
+							'type' => 'numeric'
+						),
+						array( // Variable products type
+							'key' => '_min_variation_sale_price',
+							'value' => 0,
+							'compare' => '>',
+							'type' => 'numeric'
 						)
-					);
-					$onsale = new WP_Query( $args );
+					)
+				);
+				$onsale = new WP_Query( $args );
 
-					if($onsale->have_posts()) {
+				if($onsale->have_posts()) {
 
-						?>
-						<div id="myCarousel" class="carousel slide" data-interval="true">
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-								<?php
-								$active = true;
-								for($count = 0 ; $count < $onsale->post_count; $count++) {
-									?>
-									<li data-target="#myCarousel" data-slide-to="<?=$count?>"<?=$active ? ' class="active"' : ''?>></li>
-									<?php
-									$active = false;
-								}
+				?>
+				<div class="box full">
+					<div id="myCarousel" class="carousel slide" data-interval="true">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<?php
+							$active = true;
+							for($count = 0 ; $count < $onsale->post_count; $count++) {
 								?>
-							</ol>
-							<!-- Wrapper for slides -->
-							<div class="carousel-inner">
+								<li data-target="#myCarousel" data-slide-to="<?=$count?>"<?=$active ? ' class="active"' : ''?>></li>
 								<?php
-								$active = true;
-								while($onsale->have_posts()) {
+								$active = false;
+							}
+							?>
+						</ol>
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<?php
+							$active = true;
+							while($onsale->have_posts()) {
 
-									$onsale->the_post();
-									?>
+								$onsale->the_post();
+								?>
 
-									<div class="item<?= $active ? ' active' : ''?>">
-										<a href="<?=$product->get_permalink();?>">
-											<div class="image col-md-6 col-lg-6">
-												<?=woocommerce_get_product_thumbnail('shop_single');?>
+								<div class="product-content item<?= $active ? ' active' : ''?>">
+									<div class="row">
+									<div class="onsale">Promo!</div>
+									<a href="<?=$product->get_permalink();?>">
+										<div class="cos-xs-12 col-sm-6 col-md-6 col-lg-6">
+											<div class="thumbnail">
+											<?=woocommerce_get_product_thumbnail('shop_single');?>
 											</div>
-											<div class="infos col-md-6 col-lg-6">
-												<div class="product-prices clearfix"><?=$product->get_price_html();?></div>
-												<?php the_title( '<h2>', '</h2>' ); ?>
-												<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+										</div>
+										<div class="infos col-xs-12 col-sm-6 col-md-6 col-lg-6">
+											<?php the_title( '<h2>', '</h2>' ); ?>
+											<div class="price clearfix"><?=$product->get_price_html();?></div>
+											<div class="row">
+												<div class="col-xs-10">
+													<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+												</div>
 											</div>
-										</a>
+										</div>
+									</a>
 									</div>
-									<?php
-									$active = false;
-								}
-								?>
-							</div>
-							<!-- Controls -->
-							<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
-							<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
-							<div class="saleflash-container">
-							<div class="onsale">Promo!</div>
-							</div>
+								</div>
+								<?php
+								$active = false;
+							}
+							?>
 						</div>
-					<?php
-					}
-					?>
+						<!-- Controls -->
+						<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
+						<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
+					</div>
 				</div>
 				<?php
+				}
+
 				$args = array(
 					'post_type' => 'accueil',
 				);
@@ -116,7 +121,7 @@ get_header();
 						</footer>
 					</article>
 				</div>
-					<?php
+				<?php
 					}
 				}
 				?>
