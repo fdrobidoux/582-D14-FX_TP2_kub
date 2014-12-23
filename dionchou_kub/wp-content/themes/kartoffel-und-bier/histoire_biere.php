@@ -1,11 +1,10 @@
 <?php
-/**
- * The template for displaying any single page.
- *
- */
+/*
+Template Name: Histoire-Biere
+*/
 
 get_header(); // This fxn gets the header.php file and renders it ?>
-<!--PAGE.PHP-->
+<!--Histoire-Biere.PHP-->
 <div class="container">
 	<div id="primary" class="row">
 		<div id="content" role="main" class="site-content">
