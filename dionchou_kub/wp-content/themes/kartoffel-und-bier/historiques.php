@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Fournisseurs
+Template Name: Historiques
 */
 
 /**
@@ -19,15 +19,15 @@ get_header();
 		<div class="container">
 			<?php
 			$args = array(
-				'post_type' => 'fournisseurs',
+				'post_type' => 'historiques',
 				);
-			$fournisseurs = new WP_Query( $args );
+			$historiques = new WP_Query( $args );
 
-			if($fournisseurs->have_posts()) {
+			if($historiques->have_posts()) {
 
-				while ($fournisseurs->have_posts()) {
+				while ($historiques->have_posts()) {
 
-					$fournisseurs->the_post();
+					$historiques->the_post();
 
 					?>
 					<div class="row">
