@@ -520,4 +520,111 @@ td.product-thumbnail {
   .woocommerce-cart .ui-spinner-input {
     width: 85px; } }
 
+.woocommerce-checkout .col2-set:after {
+  content: "";
+  display: block;
+  clear: both; }
+.woocommerce-checkout .col2-set .col-1, .woocommerce-checkout .col2-set .col-2 {
+  width: 48%;
+  float: left; }
+.woocommerce-checkout .form-row {
+  width: 48%;
+  float: left; }
+.woocommerce-checkout .col2-set .col-2, .woocommerce-checkout .form-row-last {
+  float: right; }
+.woocommerce-checkout .form-row-first {
+  clear: left; }
+.woocommerce-checkout .form-row label {
+  display: block;
+  margin-bottom: 3px;
+  line-height: 1; }
+.woocommerce-checkout .form-row input, .woocommerce-checkout .form-row textarea, .woocommerce-checkout .form-row select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%; }
+.woocommerce-checkout .form-row input.button {
+  width: auto; }
+.woocommerce-checkout .form-row.notes {
+  width: 100%; }
+  .woocommerce-checkout .form-row.notes textarea {
+    height: 100px;
+    width: 100%;
+    resize: vertical;
+    max-height: 250px; }
+.woocommerce-checkout .form-row-wide {
+  width: 100%;
+  float: left;
+  clear: both; }
+
+/* 7.7 Checkout */
+.woocommerce-checkout form.login {
+  overflow: hidden;
+  zoom: 1;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6; }
+  .woocommerce-checkout form.login button {
+    margin-left: 0; }
+
+#shiptobilling {
+  float: right;
+  margin-top: 2.3em;
+  margin-bottom: 0; }
+  #shiptobilling input {
+    float: left;
+    width: auto; }
+
+.form-row.notes {
+  width: 100%; }
+
+.checkout .create-account {
+  clear: left; }
+.checkout .form-row.vat-number {
+  width: 100%; }
+
+ul.payment_methods {
+  margin-left: 0;
+  padding: 0;
+  list-style: none; }
+  ul.payment_methods li {
+    list-style: none;
+    margin-bottom: 10px; }
+    ul.payment_methods li img {
+      padding: 0;
+      border: 0;
+      vertical-align: bottom;
+      margin-left: 6px; }
+  ul.payment_methods .payment_box {
+    padding: 12px;
+    border: 1px solid #e6e6e6;
+    background: #f6f6f6;
+    margin-bottom: 20px;
+    margin-top: 10px; }
+    ul.payment_methods .payment_box p {
+      margin: 0; }
+
+.payment_box fieldset {
+  margin-bottom: 0; }
+.payment_box .form-row .woocommerce-select {
+  width: 30.75%;
+  float: left;
+  margin-right: 3.8%; }
+
+ul.payment_methods + .form-row {
+  width: 100%; }
+  ul.payment_methods + .form-row label {
+    display: inline; }
+  ul.payment_methods + .form-row input {
+    width: auto;
+    float: left; }
+
+#place_order {
+  float: right; }
+  #place_order h3 > label {
+    font-size: 20px;
+    display: inline-block;
+    position: relative; }
+  #place_order h3 > input {
+    display: inline-block; }
+
 /*# sourceMappingURL=kub.css.map */
