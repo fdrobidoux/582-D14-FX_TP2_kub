@@ -13,5 +13,8 @@ if ( ! $messages ) return;
 ?>
 
 <?php foreach ( $messages as $message ) : ?>
-	<div class="woocommerce-info"><?php echo wp_kses_post( $message ); ?></div>
+	<div class="woocommerce-info alert alert-info alert-dismissible" role="alert">
+		<button class="close fui-cross" data-dismiss="alert"></button>
+		<p><?php echo wp_kses_post( $message ); ?></p>
+	</div>
 <?php endforeach; ?>

@@ -18,9 +18,9 @@ echo apply_filters( 'woocommerce_loop_add_to_cart_link',
 		esc_attr( $product->get_sku() ),                // data-product_sku="[]"
 		esc_attr( isset( $quantity ) ? $quantity : 1 ), // data-quantity="[]"
 		$product->is_purchasable() && $product->is_in_stock()
-			? 'btn btn-success add_to_cart_button'
-			: 'btn btn-default',                        // class="button []
+			? 'btn btn-success btn-sm add_to_cart_button'
+			: 'btn btn-default btn-sm',                        // class="button []
 		esc_attr( $product->product_type ),             // class="[...]product_type_[]"
-		$product->add_to_cart_text()        // >[]</a>
+		$product->add_to_cart_text()                    // >[]</a>
 	),
 $product );

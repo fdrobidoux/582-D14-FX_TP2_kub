@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $post, $woocommerce, $product;
 
 ?>
-<div class="images">
+<div class="image col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 	<?php
 		if ( has_post_thumbnail() ) {
@@ -21,7 +21,7 @@ global $post, $woocommerce, $product;
 			$image_link  = wp_get_attachment_url( get_post_thumbnail_id() );
 			$image       = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
 				'title' => $image_title
-				) );
+			) );
 
 			$attachment_count = count( $product->get_gallery_attachment_ids() );
 
@@ -35,7 +35,7 @@ global $post, $woocommerce, $product;
 
 		} else {
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img class="img-responsive" src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
 
 		}
 	?>

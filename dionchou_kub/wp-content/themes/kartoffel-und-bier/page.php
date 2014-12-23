@@ -6,9 +6,9 @@
 
 get_header(); // This fxn gets the header.php file and renders it ?>
 <!--PAGE.PHP-->
-	<div id="primary" class="row-fluid">
-		<div id="content" role="main" class="span8 offset2">
-
+<div class="container">
+	<div id="primary" class="row">
+		<div id="content" role="main" class="site-content">
 			<?php if ( have_posts() ) :
 				// Do we have any posts/pages in the databse that match our query?
 				?>
@@ -44,4 +44,5 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 		</div><!-- #content .site-content -->
 	</div><!-- #primary .content-area -->
+</div>
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

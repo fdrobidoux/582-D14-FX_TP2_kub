@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-12-18 16:07:54+0000\n"
+"PO-Revision-Date: 2014-12-20 16:42:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -185,10 +185,6 @@ msgstr "Gérer dans l'outil de personnalisation"
 msgid "You cannot delete a theme while it has an active child theme."
 msgstr "Vous ne pouvez pas supprimer un thème qui est actuellement utilisé par l'un de ses thèmes-enfant."
 
-#: wp-admin/user-edit.php:504
-msgid "Left your account logged in at a public computer? Lost your phone? This will log you out everywhere except your current browser."
-msgstr "Avez-vous laissez votre compte ouvert sur un ordinateur public ? Oubliez votre téléphone ? Cette option vous déconnectera de partout sauf du navigateur que vous utilisez maintenant."
-
 #: wp-admin/user-edit.php:42
 msgid "You can log out of other devices, such as your phone or a public computer, by clicking the Log Out of All Other Sessions button. The button will only display if you are logged in to more than one device."
 msgstr "Vous pouvez vous déconnecter des autres appareils, tels que votre téléphone ou un ordinateur public, en cliquant sur le bouton &laquo;&nbsp;Me déconnecter de toutes les autres sessions&nbsp;&raquo;. Le bouton ne s'affichera que si vous êtes connecté sur plus d'un appareil."
@@ -212,6 +208,10 @@ msgstr "<strong>Nouvelles de WordPress</strong> - Dernière nouvelles en provena
 #: wp-admin/index.php:72
 msgid "<strong>WordPress News</strong> - Latest news from the official WordPress project, the <a href=\"https://planet.wordpress.org/\">WordPress Planet</a>, and popular and recent plugins."
 msgstr "<strong>Nouvelles de WordPress</strong> - Dernière nouvelles en provenance du projet officiel WordPress, du <a href=\"http://www.wordpress-fr.net/planet/\">Planet de WordPress-Francophone</a>, et les extensions populaires et récentes."
+
+#: wp-admin/user-edit.php:504
+msgid "Left your account logged in at a public computer? Lost your phone? This will log you out everywhere except your current browser."
+msgstr "Avez-vous laissé votre compte ouvert sur un ordinateur public ? Perdu votre téléphone ? Cette fonction vous déconnectera de partout sauf du navigateur que vous utilisez maintenant."
 
 #: wp-admin/includes/template.php:2032
 msgid "Add, edit, and play around with your widgets from the Customizer."
@@ -8712,7 +8712,7 @@ msgstr "Le mot de passe SSH2 est obligatoire"
 msgid "Failed to connect to SSH2 Server %1$s:%2$s"
 msgstr "Impossible de me connecter au serveur SSH2 %1$s&nbsp;: %2$s"
 
-#: wp-admin/includes/class-wp-filesystem-ssh2.php:136
+#: wp-admin/includes/class-wp-filesystem-ssh2.php:137
 msgid "Unable to perform command: %s"
 msgstr "Impossible de lancer la commande&nbsp;: %s"
 
