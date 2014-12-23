@@ -533,7 +533,6 @@ td.product-thumbnail
       display: block
       clear: both
     .col-1, .col-2
-      width: 48%
       float: left
 
   .form-row
@@ -558,6 +557,8 @@ td.product-thumbnail
       width: 100%
     input.button
       width: auto
+    input.input-text
+      color: #666
     &.notes
       width: 100%
       textarea
@@ -638,33 +639,24 @@ ul.payment_methods + .form-row
 #place_order
   float: right
 
-  //
-  //.col2-set
-  //  &:after
-  //    display: block
-  //    content: ""
-  //    clear: both
-  //.col-1, .col-2
-  //  width: 48%
-  //  float: left
-  //.col-2
-  //  float: right
-  //
-  //label
-  //  margin: 0
-  //  padding: 0
-  //  border: 0
-  //  outline: 0
-  //  font-size: 100%
-  //
-  //
-  h3
-    & > label
-      font-size: 20px
+
+.woocommerce-shipping-fields
+  margin-top: 80px
+  #ship-to-different-address
+    label
       display: inline-block
       position: relative
-    & > input
+      padding-left: 0
+      font-size: 20px
+
+    input
       display: inline-block
 
+@media (min-width: 768px)
+  .col-1, .col-2
+    width: 48%
 
+@media (max-width: 767px)
+  .col-1, .col-2
+    width: 100%
 

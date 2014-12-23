@@ -525,7 +525,6 @@ td.product-thumbnail {
   display: block;
   clear: both; }
 .woocommerce-checkout .col2-set .col-1, .woocommerce-checkout .col2-set .col-2 {
-  width: 48%;
   float: left; }
 .woocommerce-checkout .form-row {
   width: 48%;
@@ -545,6 +544,8 @@ td.product-thumbnail {
   width: 100%; }
 .woocommerce-checkout .form-row input.button {
   width: auto; }
+.woocommerce-checkout .form-row input.input-text {
+  color: #666; }
 .woocommerce-checkout .form-row.notes {
   width: 100%; }
   .woocommerce-checkout .form-row.notes textarea {
@@ -620,11 +621,22 @@ ul.payment_methods + .form-row {
 
 #place_order {
   float: right; }
-  #place_order h3 > label {
-    font-size: 20px;
+
+.woocommerce-shipping-fields {
+  margin-top: 80px; }
+  .woocommerce-shipping-fields #ship-to-different-address label {
     display: inline-block;
-    position: relative; }
-  #place_order h3 > input {
+    position: relative;
+    padding-left: 0;
+    font-size: 20px; }
+  .woocommerce-shipping-fields #ship-to-different-address input {
     display: inline-block; }
+
+@media (min-width: 768px) {
+  .col-1, .col-2 {
+    width: 48%; } }
+@media (max-width: 767px) {
+  .col-1, .col-2 {
+    width: 100%; } }
 
 /*# sourceMappingURL=kub.css.map */
