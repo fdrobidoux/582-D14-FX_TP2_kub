@@ -8,7 +8,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 <!--PAGE.PHP-->
 <div class="container">
 	<div id="primary" class="row">
-		<div id="content" role="main" class="site-content">
+		<div id="content" role="main" class="site-content col-xs-12 col-sm-10 col-sm-offset-1">
 			<?php if ( have_posts() ) :
 				// Do we have any posts/pages in the databse that match our query?
 				?>
