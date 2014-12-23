@@ -298,15 +298,15 @@ function kub_register_script() {
             wp_enqueue_script( 'prettyPhoto-init');
         }
 
-        wp_dequeue_script('wc-single-product');
-        wp_deregister_script( 'wc-single-product' );
-        wp_register_script( 'wc-single-product', get_template_directory_uri(). '/woocommerce/js/frontend/single-product.js', array( 'jquery' ), WC_VERSION, true );
-        wp_enqueue_script( 'wc-single-product');
-
-        wp_dequeue_script('woocommerce');
-        wp_deregister_script( 'woocommerce' );
-        wp_register_script( 'woocommerce', get_template_directory_uri(). '/woocommerce/js/frontend/woocommerce.js', array( 'jquery', 'jquery-blockui' ), WC_VERSION, true );
-        wp_enqueue_script( 'woocommerce');
+//        wp_dequeue_script('wc-single-product');
+//        wp_deregister_script( 'wc-single-product' );
+//        wp_register_script( 'wc-single-product', get_template_directory_uri(). '/woocommerce/js/frontend/single-product.js', array( 'jquery' ), WC_VERSION, true );
+//        wp_enqueue_script( 'wc-single-product');
+//
+//        wp_dequeue_script('woocommerce');
+//        wp_deregister_script( 'woocommerce' );
+//        wp_register_script( 'woocommerce', get_template_directory_uri(). '/woocommerce/js/frontend/woocommerce.js', array( 'jquery', 'jquery-blockui' ), WC_VERSION, true );
+//        wp_enqueue_script( 'woocommerce');
 
         wp_deregister_script( 'flat-ui-pro' );
         wp_register_script('flat-ui-pro', get_template_directory_uri().'/assets/vendor/flat-ui-pro/js/flat-ui-pro.min.js',array('jquery'), '1.3.1', true );
@@ -321,7 +321,6 @@ function kub_register_script() {
         wp_enqueue_script('masonery' );
 
         wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery','flat-ui-pro'), null, true );
-//        wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery'), null, true );
         wp_enqueue_script('kub' );
 
         wp_register_script('kub-masonery', get_template_directory_uri().'/assets/js/kub-masonery.js',array('jquery'), null, true );
@@ -534,64 +533,67 @@ function remove_width_attribute( $html ) {
 }
 add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-/* --- */
-/* $this->get_price() > 0 */
-/* --- */
 
-function kub_price_html($prix, $produit)
-{
-    $retour = '<span class="btn btn-inverse btn-sm price">'.$prix.'</span>';
 
-    return $retour;
-}
 
-/* OU */
-
-function kub_sale_price_html($prix, $produit)
-{
-    $retour = str_replace("<del>", '<span class="btn btn-default btn-sm price"><del>', $prix);
-    $retour = str_replace("</del>", '</del></span>', $retour);
-    $retour = str_replace("<ins>", '<span class="btn btn-info btn-sm price-sale">', $retour);
-    $retour = str_replace("</ins>", '</span>', $retour);
-
-    return ''.$retour.'</span>';
-}
-
-/* --- */
-/* $this->get_price() === '' */
-/* --- */
-
-function kub_empty_price_html($prix, $produit)
-{
-    return '<span class="btn btn-warning btn-sm disabled price-empty">N/A</span>';
-}
-
-/* --- */
-/* $this->get_price() == 0 */
-/* --- */
-
-function kub_free_sale_price_html($prix, $produit)
-{
-    return '<span class="btn btn-primary price">'.$prix.'</span>';
-}
-
-/* OU */
-
-function kub_free_price_html($prix, $produit)
-{
-    return '<span class="">'.$prix.'</span>';
-}
-
-/* À LA TOUTE FIN */
-
-function kub_get_price_html($prix, $produit)
-{
-    return ''.$prix.'';
-}
-
-add_filter( 'woocommerce_price_html', 'kub_price_html', 100, 2 );
-add_filter( 'woocommerce_sale_price_html', 'kub_sale_price_html', 100, 2 );
-add_filter( 'woocommerce_empty_price_html', 'kub_empty_price_html', 100, 2 );
-add_filter( 'woocommerce_free_sale_price_html', 'kub_free_sale_price_html', 100, 2);
-add_filter( 'woocommerce_free_price_html', 'kub_free_price_html', 100, 2);
-add_filter( 'woocommerce_get_price_html', 'kub_get_price_html', 100, 2);
+///* --- */
+///* $this->get_price() > 0 */
+///* --- */
+//
+//function kub_price_html($prix, $produit)
+//{
+//    $retour = '<span class="btn btn-inverse btn-sm price">'.$prix.'</span>';
+//
+//    return $retour;
+//}
+//
+///* OU */
+//
+//function kub_sale_price_html($prix, $produit)
+//{
+//    $retour = str_replace("<del>", '<span class="btn btn-default btn-sm price"><del>', $prix);
+//    $retour = str_replace("</del>", '</del></span>', $retour);
+//    $retour = str_replace("<ins>", '<span class="btn btn-info btn-sm price-sale">', $retour);
+//    $retour = str_replace("</ins>", '</span>', $retour);
+//
+//    return ''.$retour.'</span>';
+//}
+//
+///* --- */
+///* $this->get_price() === '' */
+///* --- */
+//
+//function kub_empty_price_html($prix, $produit)
+//{
+//    return '<span class="btn btn-warning btn-sm disabled price-empty">N/A</span>';
+//}
+//
+///* --- */
+///* $this->get_price() == 0 */
+///* --- */
+//
+//function kub_free_sale_price_html($prix, $produit)
+//{
+//    return '<span class="btn btn-primary price">'.$prix.'</span>';
+//}
+//
+///* OU */
+//
+//function kub_free_price_html($prix, $produit)
+//{
+//    return '<span class="">'.$prix.'</span>';
+//}
+//
+///* À LA TOUTE FIN */
+//
+//function kub_get_price_html($prix, $produit)
+//{
+//    return ''.$prix.'';
+//}
+//
+//add_filter( 'woocommerce_price_html', 'kub_price_html', 100, 2 );
+//add_filter( 'woocommerce_sale_price_html', 'kub_sale_price_html', 100, 2 );
+//add_filter( 'woocommerce_empty_price_html', 'kub_empty_price_html', 100, 2 );
+//add_filter( 'woocommerce_free_sale_price_html', 'kub_free_sale_price_html', 100, 2);
+//add_filter( 'woocommerce_free_price_html', 'kub_free_price_html', 100, 2);
+//add_filter( 'woocommerce_get_price_html', 'kub_get_price_html', 100, 2);

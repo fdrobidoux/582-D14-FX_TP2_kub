@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $product;
 
 echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<button href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s product_type_%s" data-loading-text="Loading..." autocomplete="off">%s</button>',
+	sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s product_type_%s" data-loading-text="Loading..." autocomplete="off">%s</a>',
 		esc_url( $product->add_to_cart_url() ),         // href="[]"
 		esc_attr( $product->id ),                       // data-product_id="[]"
 		esc_attr( $product->get_sku() ),                // data-product_sku="[]"
