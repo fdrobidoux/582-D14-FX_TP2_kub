@@ -26,11 +26,11 @@ if ( ! $product->is_purchasable() ) return;
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-<form class="cart form-inline" method="post" enctype='multipart/form-data'>
+<form class="cart" method="post" enctype='multipart/form-data'>
 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-	<div class="form-group">
-		<div class="input-group">
+	<div class="row">
+		<div class="col-xs-6 col-md-4">
 			<?php
 			if ( ! $product->is_sold_individually() ) {
 
@@ -42,10 +42,10 @@ if ( ! $product->is_purchasable() ) return;
 				);
 			}
 			?>
-			<span class="input-group-btn">
-				<button type="submit" class="single_add_to_cart_button button alt btn btn-primary btn-block">Ajouter</button>
-			</span>
-		</div><!-- /input-group -->
+		</div>
+		<div class="col-xs-6 col-md-4">
+			<button type="submit" class="single_add_to_cart_button button alt btn btn-primary btn-block">Ajouter</button>
+		</div>
 	</div>
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 </form>
