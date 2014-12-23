@@ -13,5 +13,10 @@ global $product;
 ?>
 
 <?php if ( $price_html = $product->get_price_html() ) { ?>
-	<span class="btn btn-info btn-inverse price"><?php echo $price_html; ?></span>
+	<!--prodict catalog-->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="price"><?php echo $price_html; ?></div>
+		</div>
+	</div>
 <?php } ?>

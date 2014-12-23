@@ -298,6 +298,11 @@ function kub_register_script() {
             wp_enqueue_script( 'prettyPhoto-init');
         }
 
+        wp_dequeue_script('wc-single-product');
+        wp_deregister_script( 'wc-single-product' );
+        wp_register_script( 'wc-single-product', get_template_directory_uri(). '/woocommerce/js/frontend/single-product.js', array( 'jquery' ), WC_VERSION, true );
+        wp_enqueue_script( 'wc-single-product');
+
         wp_dequeue_script('woocommerce');
         wp_deregister_script( 'woocommerce' );
         wp_register_script( 'woocommerce', get_template_directory_uri(). '/woocommerce/js/frontend/woocommerce.js', array( 'jquery', 'jquery-blockui' ), WC_VERSION, true );
@@ -316,6 +321,7 @@ function kub_register_script() {
         wp_enqueue_script('masonery' );
 
         wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery','flat-ui-pro'), null, true );
+//        wp_register_script('kub', get_template_directory_uri().'/assets/js/kub.js',array('jquery'), null, true );
         wp_enqueue_script('kub' );
 
         wp_register_script('kub-masonery', get_template_directory_uri().'/assets/js/kub-masonery.js',array('jquery'), null, true );
@@ -516,3 +522,12 @@ function kub_remove_product_tabs($tabs) {
 }
 
 add_filter('woocommerce_product_tabs','kub_remove_product_tabs');
+
+
+
+function remove_width_attribute( $html ) {
+    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+    return $html;
+}
+add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );

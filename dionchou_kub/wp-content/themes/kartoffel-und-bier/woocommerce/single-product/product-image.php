@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $post, $woocommerce, $product;
 
 ?>
-<div class="images col-lg-6">
-
+<div class="images col-xs-12 col-sm-6">
+	<div class="thumbnail">
 	<?php
 		if ( has_post_thumbnail() ) {
 
@@ -39,7 +39,8 @@ global $post, $woocommerce, $product;
 
 		}
 	?>
-
+	</div>
+	<div class="row">
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
-
+	</div>
 </div>

@@ -48,9 +48,9 @@ do_action( 'woocommerce_before_main_content' );
 ?>
 
 <?php while ( $onsale->have_posts() ) : $onsale->the_post(); ?>
-
+	<div class="row">
 	<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
+	</div>
 <?php endwhile; // end of the loop. ?>
 
 <?php

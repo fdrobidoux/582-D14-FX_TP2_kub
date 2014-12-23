@@ -3,11 +3,11 @@
  */
 $(function(){
 
-    $('.carousel').carousel(
-        {
-            interval: 5000
-        }
-    );
+    //$('.carousel').carousel(
+    //    {
+    //        interval: 5000
+    //    }
+    //);
 
     // Pour les select stylés.
     $("select").select2(
@@ -33,7 +33,25 @@ $(function(){
     $('.tabbable a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
-    })
+    });
 
+    $('img').each(function(){
+        $(this).removeAttr('height');
+        $(this).removeAttr('width');
+    });
+
+    // Checkboxes and Radiobuttons
+
+    $('[data-toggle="checkbox"]').radiocheck();
+    $('[data-toggle="radio"]').radiocheck();
+
+    $('.single-product #submit').addClass('btn btn-primary');
+
+
+    $('.add_to_cart_button').on('click', function () {
+        var $btn = $(this).button('loading');
+        // business logic...
+        $btn.button('reset')
+    })
 
 });

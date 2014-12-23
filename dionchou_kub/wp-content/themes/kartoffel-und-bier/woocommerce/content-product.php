@@ -28,23 +28,15 @@ if ( ! $product || ! $product->is_visible() )
 // Increase loop count
 $woocommerce_loop['loop']++;
 
-// Extra post classes
-$classes = array();
-if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
-	$classes[] = 'first';
-if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
-	$classes[] = 'last';
-$classes[] = "col-xs-10";
-$classes[] = "col-xs-offset-1";
-$classes[] = "col-sm-6";
-$classes[] = "col-sm-offset-0";
-$classes[] = "col-md-3";
-$classes[] = "col-lg-3";
+
+
 
 ?>
-<div <?php post_class( $classes ); ?>>
-	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-	<div class="well well-sm">
+<div <?php post_class( 'col-xs-12 col-sm-6 col-md-4 col-lg-3' ); ?>>
+	<div class="product-content">
+
+		<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
+
 		<a href="<?php the_permalink(); ?>">
 			<div class="thumbnail">
 			<?php
@@ -54,28 +46,23 @@ $classes[] = "col-lg-3";
 				 * @hooked woocommerce_show_product_loop_sale_flash - 10
 				 * @hooked woocommerce_template_loop_product_thumbnail - 10
 				 */
-				// do_action( 'woocommerce_before_shop_loop_item_title' );
-				wc_get_template( 'loop/sale-flash.php' );
-				echo woocommerce_get_product_thumbnail();
+				do_action( 'woocommerce_before_shop_loop_item_title' );
 			?>
-		</div>
-			<p class="product_title"><?php the_title(); ?></p>
-		</a>
-		<?php
-			/**
-			 * woocommerce_after_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_template_loop_rating - 5
-			 * @hooked woocommerce_template_loop_price - 10
-			 */
-			// do_action( 'woocommerce_after_shop_loop_item_title' );
-			wc_get_template( 'loop/rating.php' );
-		?>
-		<div class="btn-group">
+			</div>
+			<h3><?php the_title(); ?></h3>
+
 			<?php
-				wc_get_template( 'loop/price.php' );
-				wc_get_template( 'loop/add-to-cart.php' );
+				/**
+				 * woocommerce_after_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_template_loop_rating - 5
+				 * @hooked woocommerce_template_loop_price - 10
+				 */
+				do_action( 'woocommerce_after_shop_loop_item_title' );
 			?>
-		</div>
+
+		</a>
+
+		<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 	</div>
 </div>

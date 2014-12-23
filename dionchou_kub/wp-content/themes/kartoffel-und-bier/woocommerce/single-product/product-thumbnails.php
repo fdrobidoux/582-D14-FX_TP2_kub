@@ -15,7 +15,7 @@ $attachment_ids = $product->get_gallery_attachment_ids();
 
 if ( $attachment_ids ) {
 	?>
-	<div class="thumbnails row"><?php
+	<div class="thumbnails clearfix"><?php
 
 		$loop = 0;
 		$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
@@ -38,12 +38,15 @@ if ( $attachment_ids ) {
 			$image       = wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ) );
 			$image_class = esc_attr( implode( ' ', $classes ) );
 			$image_title = esc_attr( get_the_title( $attachment_id ) );
-			echo '<div class="col-lg-3">';
+			echo '<div class="col-xs-4 col-md-3 col-lg-2">';
+			echo '<div class="thumbnail">';
 			echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<a href="%s" class="%s" title="%s" data-rel="prettyPhoto[product-gallery-%s]">%s</a>', $image_link, $image_class, $image_title, $post->ID, $image ), $attachment_id, $post->ID, $image_class );
+			echo '</div>';
 			echo '</div>';
 			$loop++;
 		}
 
-	?></div>
-	<?php
+	?>
+	</div>
+<?php
 }

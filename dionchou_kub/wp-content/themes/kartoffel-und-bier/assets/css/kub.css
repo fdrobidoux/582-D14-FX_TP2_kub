@@ -1,4 +1,116 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "star";
+  src: url("../fonts/star.eot");
+  src: url("../fonts/star.eot?#iefix") format("embedded-opentype"), url("../fonts/star.woff") format("woff"), url("../fonts/star.ttf") format("truetype"), url("../fonts/star.svg#star") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* Primary colour for buttons (alt) */
+/* Text on primary colour bg */
+/* Secondary buttons */
+/* Text on secondary colour bg */
+/* Prices, In stock labels, sales flash */
+/* Text on highlight colour bg */
+/* Content BG - Tabs (active state) */
+/* small, breadcrumbs etc */
+.star-rating {
+  float: right;
+  overflow: hidden;
+  position: relative;
+  height: 1em;
+  line-height: 1em;
+  font-size: 1em;
+  width: 5.4em;
+  font-family: "star"; }
+  .star-rating:before {
+    content: "sssss";
+    color: #e0dadf;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute; }
+  .star-rating span {
+    overflow: hidden;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-top: 1.5em; }
+    .star-rating span:before {
+      content: "SSSSS";
+      top: 0;
+      position: absolute;
+      left: 0; }
+
+.woocommerce-product-rating {
+  line-height: 2em;
+  display: block; }
+  .woocommerce-product-rating .star-rating {
+    margin: 0.5em 4px 0 0;
+    float: left; }
+
+.products .star-rating {
+  display: block;
+  margin: 0 0 0.5em;
+  float: none; }
+
+.hreview-aggregate .star-rating {
+  margin: 10px 0 0 0; }
+
+#reviews #comments ul.children .star-rating {
+  display: none; }
+
+p.stars {
+  position: relative;
+  font-size: 1em; }
+  p.stars a {
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 1em;
+    text-indent: -9999px;
+    position: relative; }
+    p.stars a:last-child {
+      border-right: 0; }
+    p.stars a.star-1, p.stars a.star-2, p.stars a.star-3, p.stars a.star-4, p.stars a.star-5 {
+      border-right: 1px solid #ccc; }
+    p.stars a.star-1:after, p.stars a.star-2:after, p.stars a.star-3:after, p.stars a.star-4:after, p.stars a.star-5:after {
+      font-family: "WooCommerce";
+      text-indent: 0;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    p.stars a.star-1 {
+      width: 2em; }
+      p.stars a.star-1:after {
+        content: ""; }
+      p.stars a.star-1:hover:after, p.stars a.star-1.active:after {
+        content: ""; }
+    p.stars a.star-2 {
+      width: 3em; }
+      p.stars a.star-2:after {
+        content: ""; }
+      p.stars a.star-2:hover:after, p.stars a.star-2.active:after {
+        content: ""; }
+    p.stars a.star-3 {
+      width: 4em; }
+      p.stars a.star-3:after {
+        content: ""; }
+      p.stars a.star-3:hover:after, p.stars a.star-3.active:after {
+        content: ""; }
+    p.stars a.star-4 {
+      width: 5em; }
+      p.stars a.star-4:after {
+        content: ""; }
+      p.stars a.star-4:hover:after, p.stars a.star-4.active:after {
+        content: ""; }
+    p.stars a.star-5 {
+      width: 6em;
+      border: 0; }
+      p.stars a.star-5:after {
+        content: ""; }
+      p.stars a.star-5:hover:after, p.stars a.star-5.active:after {
+        content: ""; }
+
 body {
   padding-top: 76px; }
 
@@ -33,158 +145,52 @@ p {
       font-size: 18px; } }
 
 /* Rend le Carousel adapté */
-#myCarousel {
-  border: 2px solid #34495e;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #edf6fc;
-  padding: 10px; }
-  #myCarousel .infos {
-    color: #34495e;
-    padding: 0; }
-    @media screen and (min-width: 992px) {
-      #myCarousel .infos {
-        padding: 0 15px; } }
-  #myCarousel h2 {
-    font-size: 25px;
-    margin: 0; }
-    @media screen and (min-width: 768px) {
-      #myCarousel h2 {
-        font-size: 40px; } }
-    @media screen and (min-width: 1200px) {
-      #myCarousel h2 {
-        font-size: 53px;
-        margin: 10px 0; } }
-  #myCarousel .image {
-    padding: 15px 0;
-    text-align: center;
-    border-radius: 8px;
-    background-color: #fff; }
-    #myCarousel .image img {
-      height: 320px;
-      max-width: 100%;
-      border-radius: 4px; }
-      @media screen and (min-width: 768px) {
-        #myCarousel .image img {
-          height: 500px; } }
-      @media screen and (min-width: 992px) {
-        #myCarousel .image img {
-          height: 450px; } }
-      @media screen and (min-width: 1200px) {
-        #myCarousel .image img {
-          height: 528px; } }
-
-#myCarousel > div.saleflash-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100px;
-  height: 100px;
-  background-color: #1abc9c;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 100%;
-  overflow: hidden; }
-  @media screen and (min-width: 768px) {
-    #myCarousel > div.saleflash-container {
-      width: 200px;
-      height: 200px; } }
-  @media screen and (min-width: 992px) {
-    #myCarousel > div.saleflash-container {
-      width: 150px;
-      height: 150px; } }
-  @media screen and (min-width: 1200px) {
-    #myCarousel > div.saleflash-container {
-      width: 200px;
-      height: 200px; } }
-
-#myCarousel > div.saleflash-container > div.onsale {
-  font-family: sans-serif;
+.onsale {
   display: block;
   position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 110px;
+  height: 110px;
   color: #fff;
-  font-size: 30px;
-  line-height: 0;
+  background-color: #1abc9c;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 110px;
+  text-align: center;
+  border-radius: 50%;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  top: 50%;
-  left: 0; }
+  z-index: 500; }
   @media screen and (min-width: 768px) {
-    #myCarousel > div.saleflash-container > div.onsale {
-      font-size: 60px; } }
-  @media screen and (min-width: 992px) {
-    #myCarousel > div.saleflash-container > div.onsale {
-      font-size: 45px; } }
-  @media screen and (min-width: 1200px) {
-    #myCarousel > div.saleflash-container > div.onsale {
-      font-size: 60px; } }
+    .onsale {
+      top: -15px;
+      left: -15px;
+      width: 130px;
+      height: 130px;
+      font-size: 30px;
+      line-height: 130px; } }
+
+.post-type-archive-product .onsale {
+  top: -15px;
+  left: -15px;
+  width: 90px;
+  height: 90px;
+  font-size: 20px;
+  line-height: 90px; }
+
+.home .onsale {
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  font-size: 20px;
+  line-height: 90px; }
 
 .carousel-indicators li.active {
   background-color: #1abc9c; }
-
-#myCarousel .product-prices {
-  position: relative;
-  padding: 20px 0; }
-  @media screen and (min-width: 992px) {
-    #myCarousel .product-prices {
-      padding: 50px 0; } }
-
-#myCarousel .product-prices > ins {
-  display: block;
-  float: left;
-  width: 76%;
-  background-color: #1abc9c;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 40px;
-  text-decoration: none;
-  line-height: 1.6;
-  margin: -80px 12% 0; }
-  @media screen and (min-width: 768px) {
-    #myCarousel .product-prices > ins {
-      font-size: 60px;
-      margin: -125px 12% 0; } }
-  @media screen and (min-width: 992px) {
-    #myCarousel .product-prices > ins {
-      font-size: 70px;
-      margin: -140px 12% 0; } }
-  @media screen and (min-width: 1200px) {
-    #myCarousel .product-prices > ins {
-      width: 80%;
-      font-size: 90px;
-      margin: -180px 12% 0; } }
-
-#myCarousel .product-prices > del {
-  display: block;
-  float: right;
-  background-color: #000000;
-  color: #fff;
-  width: 25%;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-  margin-right: 12%;
-  line-height: 1.6;
-  font-size: 15px;
-  margin-top: 65px; }
-  @media screen and (min-width: 768px) {
-    #myCarousel .product-prices > del {
-      font-size: 25px;
-      margin-top: 95px; } }
-  @media screen and (min-width: 992px) {
-    #myCarousel .product-prices > del {
-      font-size: 25px;
-      margin-top: 100px; } }
-  @media screen and (min-width: 1200px) {
-    #myCarousel .product-prices > del {
-      font-size: 30px;
-      margin-top: 140px;
-      width: 33%;
-      margin-right: 10%; } }
 
 .navbar-toggle {
   height: 53px;
@@ -253,25 +259,208 @@ h2.visible-xs {
   line-height: 36px;
   padding-top: 76px; }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0; }
+.col-no-padding [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
 
-.input-group-btn .btn-primary {
-  background-color: #1abc9c; }
-
-.page-template-envedette .onsale {
-  position: absolute;
-  z-index: 500; }
-.page-template-envedette .product {
+.product-content {
+  position: relative;
   padding: 15px;
   border: 2px solid #34495e;
   border-radius: 10px;
-  margin-bottom: 30px;
   background-color: #edeff1; }
-.page-template-envedette .nav-tabs > li.active > a {
-  background-color: #fff; }
-.page-template-envedette .tab-content {
-  background-color: #fff; }
+  .product-content a {
+    display: block;
+    width: 100%; }
+  .product-content h1, .product-content h2 {
+    font-size: 30px;
+    color: #34495e;
+    margin: 5px 0; }
+    @media screen and (min-width: 768px) {
+      .product-content h1, .product-content h2 {
+        font-size: 40px; } }
+    @media screen and (min-width: 992px) {
+      .product-content h1, .product-content h2 {
+        font-size: 53px; } }
+  .product-content h3 {
+    font-size: 20px;
+    color: #34495e;
+    margin: 5px 0; }
+  .product-content p {
+    font-size: 15px;
+    color: #34495e; }
+    @media screen and (min-width: 768px) {
+      .product-content p {
+        font-size: 18px; } }
+  .product-content .thumbnails {
+    margin: 5px 10px 0; }
+    .product-content .thumbnails [class*="col-"] {
+      padding: 0 5px 10px; }
+    .product-content .thumbnails .attachment-shop_thumbnail {
+      min-height: 67px;
+      max-height: 67px;
+      max-width: 100%; }
+      @media screen and (min-width: 768px) {
+        .product-content .thumbnails .attachment-shop_thumbnail {
+          min-height: 91px;
+          max-height: 91px; } }
+      @media screen and (min-width: 992px) {
+        .product-content .thumbnails .attachment-shop_thumbnail {
+          min-height: 90px;
+          max-height: 90px; } }
+      @media screen and (min-width: 1200px) {
+        .product-content .thumbnails .attachment-shop_thumbnail {
+          min-height: 69px;
+          max-height: 69px; } }
+  .product-content .attachment-shop_single {
+    max-height: 244px; }
+    @media screen and (min-width: 768px) {
+      .product-content .attachment-shop_single {
+        max-height: 316px; } }
+    @media screen and (min-width: 992px) {
+      .product-content .attachment-shop_single {
+        max-height: 426px; } }
+    @media screen and (min-width: 1200px) {
+      .product-content .attachment-shop_single {
+        max-height: 526px; } }
+  .product-content .variations .label {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #34495e;
+    font-weight: bold;
+    line-height: 1.5; }
+    .product-content .variations .label label {
+      font-size: 18px;
+      color: #34495e;
+      font-weight: bold;
+      line-height: 1.5; }
+  .product-content .product_meta a {
+    display: inline; }
+  .product-content .input-group-btn .btn-primary {
+    background-color: #34495e;
+    border: 2px solid #34495e;
+    color: #fff; }
+  .product-content .form-control {
+    color: #34495e;
+    border: 2px solid #34495e; }
+
+body:not(.home) .product-content {
+  margin-bottom: 30px; }
+
+.home .attachment-shop_single {
+  min-height: 244px;
+  max-height: 244px; }
+  @media screen and (min-width: 768px) {
+    .home .attachment-shop_single {
+      min-height: 316px;
+      max-height: 316px; } }
+  @media screen and (min-width: 992px) {
+    .home .attachment-shop_single {
+      min-height: 426px;
+      max-height: 426px; } }
+  @media screen and (min-width: 1200px) {
+    .home .attachment-shop_single {
+      min-height: 526px;
+      max-height: 526px; } }
+
+.attachment-shop_catalog {
+  min-height: 244px;
+  max-height: 244px; }
+
+.dummy-rating {
+  font-size: 18px;
+  line-height: 18px;
+  margin: 0 0 9px 0; }
+
+.tabbable {
+  margin-top: 30px; }
+  .tabbable .tab-content {
+    background-color: #fff;
+    border-color: #34495e;
+    border-radius: 6px; }
+    .tabbable .tab-content h2 {
+      font-size: 30px;
+      margin-top: 0; }
+  .tabbable .nav-tabs > li > a {
+    border-color: #34495e; }
+    @media screen and (min-width: 768px) {
+      .tabbable .nav-tabs > li > a {
+        border-color: #34495e;
+        border-width: 2px; } }
+  .tabbable .nav-tabs > li.active > a {
+    border-color: #34495e;
+    background-color: #34495e; }
+    @media screen and (min-width: 768px) {
+      .tabbable .nav-tabs > li.active > a {
+        border-color: #34495e;
+        background-color: #fff;
+        border-bottom-color: #fff;
+        border-bottom-width: 0;
+        margin-bottom: -2px; } }
+  .tabbable .nav-tabs.nav-append-content > li.active:first-child:before {
+    border-left-color: #34495e; }
+
+.post-type-archive-product .product-content {
+  min-height: 490px; }
+
+.carousel-indicators {
+  top: 6px;
+  right: 9px; }
+
+.price > span.amount {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 10px 0 15px;
+  text-align: center;
+  background-color: #1abc9c;
+  text-decoration: none;
+  color: #fff; }
+
+.price > ins, .price > del {
+  display: inline-block;
+  width: 49%;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 10px 0 15px;
+  text-align: center; }
+
+.price > ins {
+  background-color: #1abc9c;
+  text-decoration: none;
+  color: #fff; }
+
+.price > del {
+  background-color: #565656;
+  color: #fff; }
+
+.home .price ins, .home .price del {
+  display: block;
+  width: 100%;
+  font-size: 30px; }
+  @media screen and (min-width: 768px) {
+    .home .price ins, .home .price del {
+      width: 80%; } }
+  @media screen and (min-width: 992px) {
+    .home .price ins, .home .price del {
+      font-size: 40px; } }
+
+.home .product-content p {
+  font-size: 13px; }
+  @media screen and (min-width: 992px) {
+    .home .product-content p {
+      font-size: 20px; } }
+
+.carousel-control {
+  top: 25%; }
+  @media screen and (min-width: 768px) {
+    .carousel-control {
+      top: 50%; } }
 
 /*# sourceMappingURL=kub.css.map */

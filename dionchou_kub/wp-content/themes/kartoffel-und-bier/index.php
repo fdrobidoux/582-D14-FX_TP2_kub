@@ -62,17 +62,26 @@ get_header();
 								$onsale->the_post();
 								?>
 
-								<div class="item<?= $active ? ' active' : ''?>">
+								<div class="product-content item<?= $active ? ' active' : ''?>">
+									<div class="row">
+									<div class="onsale">Promo!</div>
 									<a href="<?=$product->get_permalink();?>">
-										<div class="image col-md-6 col-lg-6">
+										<div class="cos-xs-12 col-sm-6 col-md-6 col-lg-6">
+											<div class="thumbnail">
 											<?=woocommerce_get_product_thumbnail('shop_single');?>
+											</div>
 										</div>
-										<div class="infos col-md-6 col-lg-6">
-											<div class="product-prices clearfix"><?=$product->get_price_html();?></div>
+										<div class="infos col-xs-12 col-sm-6 col-md-6 col-lg-6">
 											<?php the_title( '<h2>', '</h2>' ); ?>
-											<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+											<div class="price clearfix"><?=$product->get_price_html();?></div>
+											<div class="row">
+												<div class="col-xs-10">
+													<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+												</div>
+											</div>
 										</div>
 									</a>
+									</div>
 								</div>
 								<?php
 								$active = false;
@@ -82,9 +91,6 @@ get_header();
 						<!-- Controls -->
 						<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>
 						<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>
-						<div class="saleflash-container">
-						<div class="onsale">Promo!</div>
-						</div>
 					</div>
 				</div>
 				<?php
