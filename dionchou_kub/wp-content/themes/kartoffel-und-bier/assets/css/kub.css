@@ -203,7 +203,7 @@ p {
   z-index: 1029; }
 
 /* ########## Select ######### */
-/* Note: ┬½ .select-primary ┬╗ est celui par d├®faut. pas besoin de le styler. */
+/* Note: « .select-primary » est celui par défaut. pas besoin de le styler. */
 /* Default */
 .select2-drop .select-default.select2-highlighted > .select2-result-label {
   background-color: #BDC3C7; }
