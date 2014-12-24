@@ -524,3 +524,139 @@ td.product-thumbnail
 
 
 
+
+
+.woocommerce-checkout
+  .col2-set
+    &:after
+      content: ""
+      display: block
+      clear: both
+    .col-1, .col-2
+      float: left
+
+  .form-row
+    width: 48%
+    float: left
+
+  .col2-set .col-2, .form-row-last
+    float: right
+
+  .form-row-first
+    clear: left
+
+  .form-row
+    label
+      display: block
+      margin-bottom: 3px
+      line-height: 1
+    input, textarea, select
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      width: 100%
+    input.button
+      width: auto
+    input.input-text
+      color: #666
+    &.notes
+      width: 100%
+      textarea
+        height: 100px
+        width: 100%
+        resize: vertical
+        max-height: 250px
+
+  .form-row-wide
+    width: 100%
+    float: left
+    clear: both
+
+/* 7.7 Checkout
+
+.woocommerce-checkout form.login
+  overflow: hidden
+  zoom: 1
+  margin-bottom: 20px
+  border-bottom: 1px solid #e6e6e6
+  button
+    margin-left: 0
+
+#shiptobilling
+  float: right
+  margin-top: 2.3em
+  margin-bottom: 0
+  input
+    float: left
+    width: auto
+
+.form-row.notes
+  width: 100%
+
+.checkout
+  .create-account
+    clear: left
+  .form-row.vat-number
+    width: 100%
+
+ul.payment_methods
+  margin-left: 0
+  padding: 0
+  list-style: none
+  li
+    list-style: none
+    margin-bottom: 10px
+    img
+      padding: 0
+      border: 0
+      vertical-align: bottom
+      margin-left: 6px
+  .payment_box
+    padding: 12px
+    border: 1px solid #e6e6e6
+    background: #f6f6f6
+    margin-bottom: 20px
+    margin-top: 10px
+    p
+      margin: 0
+
+.payment_box
+  fieldset
+    margin-bottom: 0
+  .form-row .woocommerce-select
+    width: 30.75%
+    float: left
+    margin-right: 3.8%
+
+ul.payment_methods + .form-row
+  width: 100%
+  label
+    display: inline
+  input
+    width: auto
+    float: left
+
+#place_order
+  float: right
+
+
+.woocommerce-shipping-fields
+  margin-top: 80px
+  #ship-to-different-address
+    label
+      display: inline-block
+      position: relative
+      padding-left: 0
+      font-size: 20px
+
+    input
+      display: inline-block
+
+@media (min-width: 768px)
+  .col-1, .col-2
+    width: 48%
+
+@media (max-width: 767px)
+  .col-1, .col-2
+    width: 100%
+
