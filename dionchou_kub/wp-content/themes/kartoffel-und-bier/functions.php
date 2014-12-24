@@ -484,6 +484,11 @@ function kub_register_script() {
         wp_register_script('kub-masonery', get_template_directory_uri().'/assets/js/kub-masonery.js',array('jquery'), null, true );
         wp_enqueue_script('kub-masonery' );
 
+        wp_register_script('kub-contact', get_template_directory_uri().'/assets/js/kub-contact.js',
+            array('jquery'), null, true );
+        wp_enqueue_script('kub-contact' );
+        wp_localize_script('kub-contact','kub_ajax', array('url'=>admin_url( 'admin-ajax.php' )));
+
         // Include the file, if needed
         if ( ! function_exists( 'wp_check_browser_version' ) ) {
             include_once( ABSPATH . 'wp-admin/includes/dashboard.php' );
@@ -756,16 +761,43 @@ add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 //add_filter( 'woocommerce_free_price_html', 'kub_free_price_html', 100, 2);
 //add_filter( 'woocommerce_get_price_html', 'kub_get_price_html', 100, 2);
 
-function contact_form_enqueue() {
+function kub_ajax_contact()
+{
+    $error = '';
+    $status = 'error';
+    if (isset($_POST['txtNom']) && isset($_POST['txtEmail']) || isset($_POST['txtMessage'])) {
+        $error = 'All '.$_POST["txtNom"]." ".$_POST["txtEmail"]." "
+                 .$_POST["txtMessage"].' required';
+    } else {
+        if (!wp_verify_nonce($_POST['kub_ajax'], $_POST['action'])) {
+            $error = 'Verification error, try again.';
+        } else {
+            $name = filter_var($_POST['txtNom'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+            $email = filter_var($_POST['txtEmail'], FILTER_SANITIZE_EMAIL);
+            $subject = 'A messsage from your website\'s contact form';
+            $message = stripslashes($_POST['txtMessage']);
+            $message .= PHP_EOL.PHP_EOL.'IP address: '.$_SERVER['REMOTE_ADDR'];
+            $message .= PHP_EOL.'Sender\'s name: '.$name;
+            $message .= PHP_EOL.'E-mail address: '.$email;
+            $sendmsg = 'Thanks, for the message. We will respond as soon as possible.';
+            $to = get_option('admin_email'); // If you like change this email address
+            // replace "noreply@yourdomain.com" with your real email address
+            $header = 'From: '.get_option('blogname').' <noreply@yourdomain.com>'.PHP_EOL;
+            $header .= 'Reply-To: '.$email.PHP_EOL;
+            if ( wp_mail($to, $subject, $message, $header) ) {
+                $status = 'success';
+                $error = $sendmsg;
+            } else {
+                $error = 'Some errors occurred.';
+            }
+        }
+    }
 
-    //Enqueue jQuery if not already loaded
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('kuf-contact', plugins_url( 'assets/js/ku-contact.js' , __FILE__ ), array
-    ('jquery'));
-
-    $localize = array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' )
-    );
-    wp_localize_script('kuf-contact', 'ajax_obj', $localize);
+    $resp = array('status' => $status, 'errmessage' => $error);
+    header( "Content-Type: application/json" );
+    echo json_encode($resp);
+    die();
 }
-add_action( 'wp_enqueue_scripts', 'contact_form_enqueue' );
+
+add_action('wp_ajax_contactform_action', 'kub_ajax_contact');
+add_action('wp_ajax_nopriv_contactform_action', "kub_ajax_contact");

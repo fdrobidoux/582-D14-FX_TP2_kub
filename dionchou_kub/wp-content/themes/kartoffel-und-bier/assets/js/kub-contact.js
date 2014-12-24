@@ -12,16 +12,22 @@ $(document).ready(function($) {
 			$('#contact-msg').html('At least one of the form fields is empty.');
 			return false;
 		} else {
+			alert($('#contact-form').serialize());
 			$.ajax({
 				type: 'POST',
-				url: ajax_obj.ajaxurl,
+				url: kub_ajax.url,
 				data: $('#contact-form').serialize(),
 				dataType: 'json',
 				success: function(response) {
 					if (response.status == 'success') {
 						$('#contact-form')[0].reset();
+						alert("hello");
 					}
 					$('#contact-msg').html(response.errmessage);
+				},
+				error: function(request, status_text, error) {
+					$('#contact-msg').html('Une erreur est survenue.');
+					return false;
 				}
 			});
 		}

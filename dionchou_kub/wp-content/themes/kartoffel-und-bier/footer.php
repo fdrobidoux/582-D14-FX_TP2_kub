@@ -50,8 +50,10 @@
 									  name="txtMessage"
 									  id="txtMessage" placeholder="Message"></textarea>
 						</div>
-						<button type="submit" id="btnSubmit" class="btn
-						btn-primary">Envoyer</button>
+						<input type="hidden" name="action" value="contactform_action" />
+						<?php wp_nonce_field( 'kub_ajax', '_kub_nonce', true, false ); ?>
+						<input type="button" id="btnSubmit" class="btn
+						btn-primary" value="Envoyer">
 					</form>
 				</div>
 			</div>
