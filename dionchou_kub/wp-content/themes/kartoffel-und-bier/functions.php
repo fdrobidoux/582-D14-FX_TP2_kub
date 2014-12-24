@@ -755,3 +755,17 @@ add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 //add_filter( 'woocommerce_free_sale_price_html', 'kub_free_sale_price_html', 100, 2);
 //add_filter( 'woocommerce_free_price_html', 'kub_free_price_html', 100, 2);
 //add_filter( 'woocommerce_get_price_html', 'kub_get_price_html', 100, 2);
+
+function contact_form_enqueue() {
+
+    //Enqueue jQuery if not already loaded
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('kuf-contact', plugins_url( 'assets/js/ku-contact.js' , __FILE__ ), array
+    ('jquery'));
+
+    $localize = array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' )
+    );
+    wp_localize_script('kuf-contact', 'ajax_obj', $localize);
+}
+add_action( 'wp_enqueue_scripts', 'contact_form_enqueue' );

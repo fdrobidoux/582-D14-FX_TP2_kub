@@ -32,7 +32,8 @@
 				</div>
 				<div id="contact" class="col-sm-6 col-md-6">
 					<h2 class="visible-xs">Nous contacter</h2>
-					<form action="#" method="POST" role="form">
+					<p id="contact-msg"></p>
+					<form id="contact-form">
 						<div class="form-group">
 							<label class="sr-only" for="txtNom">Nom</label>
 							<input type="text" class="form-control" name="txtNom" id="txtNom"
@@ -49,7 +50,8 @@
 									  name="txtMessage"
 									  id="txtMessage" placeholder="Message"></textarea>
 						</div>
-						<button type="submit" class="btn btn-primary">Envoyer</button>
+						<button type="submit" id="btnSubmit" class="btn
+						btn-primary">Envoyer</button>
 					</form>
 				</div>
 			</div>
